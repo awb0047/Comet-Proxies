@@ -4,12 +4,12 @@ const passport = require('passport');
 router.get('/discord', passport.authenticate('discord') );
 
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) => {
-    res.sendStatus(200);
+    res.redirect('http://localhost:3000/dashboard')
 });
 
 router.get('/', (req, res) => {
     if (req.user) {
-        res.send( req.user.avatar );
+        res.send( req.user );
     } else {
         res.status(401).send({ msg: 'Unauthorized'})
     }

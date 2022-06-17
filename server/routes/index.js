@@ -1,19 +1,10 @@
 const router = require('express').Router();
 const auth = require('./auth');
-// const discord = require('../strategies/discord');
+const discord = require('./discord');
+const users = require('./users');
 
 router.use('/auth', auth);
-// router.use('/discord', discord);
-
-router.get('/12345', (req, res) => {
-    if (req.user) {
-        console.log( req.user.discordTag );
-        console.log("Test!");
-        res.send( req.user );
-    } else {
-        //console.log(req.user);
-        res.status(401).send({ msg: 'Unauthorized'})
-    }
-})
+router.use('/discord', discord);
+router.use('/users', users)
 
 module.exports = router;
