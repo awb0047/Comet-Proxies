@@ -1,1 +1,1 @@
-export { DashboardComponent } from './DashboardWrapper'
+export { SideBar, MainBody } from './DashboardWrapper'

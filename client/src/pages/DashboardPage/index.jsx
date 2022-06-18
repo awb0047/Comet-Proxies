@@ -1,5 +1,6 @@
 import React from "react";
-import { DashboardComponent } from "../../components";
+import "../../utils/styles/dashstyle.css"
+import { SideBar, MainBody } from "../../components";
 import { getUserDetails, getUserData } from '../../utils/api'
 
 export function DashboardPage( {
@@ -15,11 +16,11 @@ export function DashboardPage( {
         .then( ( {data} ) => {
             //console.log(data);
             setUser(data);
+            setLoading(false);
             return getUserData();
         }).then( ( { data } ) => {
             //console.log(data);
             setUserData( data )
-            setLoading(false);
         }).catch( ( err ) => {
             window.location.href = '/'
             setLoading(false);
@@ -27,9 +28,10 @@ export function DashboardPage( {
     }, [])
 
     return !loading && (
-        <div>
-            <h1>Dashboard Page</h1>
-            <DashboardComponent user={ user } userData={ userData }/>
+        <div className="main-container">
+            {/* <NavBar user={ user } userData={ userData }/> */}
+            <SideBar user={ user } userData={ userData }/>
+            <MainBody user={ user } userData={ userData }/>
         </div>
     );
 }

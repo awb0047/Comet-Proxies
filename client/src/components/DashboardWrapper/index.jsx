@@ -1,14 +1,35 @@
 import React from "react";
+import { Menu, MenuButton, MenuList, MenuItem, IconButton, Button, Stack, } from '@chakra-ui/react'
+import { ChevronDownIcon, InfoIcon, PhoneIcon} from '@chakra-ui/icons'
 
-export function DashboardComponent( {
+import '../../utils/styles/dashstyle.css'
+import {Nav, InnerNav , User, Picture, Tag, Logo} from './NavStyling'
+import { Heading } from './Heading/heading'
+import { MyPlans} from './MyPlans/myplans'
+import { Side } from './SideStyling'
+import { Mainbody_container, ResisDash } from './MainStyling'
+
+export function SideBar( {
     user, userData,
 } ) {
-    console.log(userData);
-    console.log(user);
     return (
-        <div>
-            <h1>Hello {user.discordTag}</h1>
-            <h1>Discord ID: {user.discordId}</h1>
-        </div>
+        <>
+            <Side>
+                <Heading user={ user } userData={ userData }></Heading>
+                <MyPlans user={ user } userData={ userData }></MyPlans>
+            </Side>
+        </>
+    );
+}
+
+export function MainBody( {
+    user, userData,
+} ) {
+    return (
+        <>
+            <Mainbody_container>
+                <ResisDash></ResisDash>
+            </Mainbody_container>
+        </>
     );
 }

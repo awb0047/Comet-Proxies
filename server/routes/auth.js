@@ -15,4 +15,10 @@ router.get('/', (req, res) => {
     }
 })
 
+router.get('/logout', function (req, res){
+    req.session.destroy(function (err) {
+      res.redirect('http://localhost:3000/');
+    });
+  });
+
 module.exports =  router;
