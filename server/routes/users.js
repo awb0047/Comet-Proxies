@@ -85,7 +85,10 @@ router.get(`/plans/:username`, async (req, res) => {
         return;
     }
     else {
-        res.json({response: 'customer not found'});
+        res.json({
+            response: 'customer not found',
+            standByPlan: [],
+        });
     }
 } );
 

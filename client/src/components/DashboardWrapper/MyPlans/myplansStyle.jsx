@@ -30,7 +30,7 @@ export const PlansContainer = styled.div`
 export const HeaderText = styled.h1`
     width: auto;
     height: autopx;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     color: ${Colors.color6};
     float: left;

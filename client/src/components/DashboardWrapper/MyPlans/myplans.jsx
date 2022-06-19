@@ -5,15 +5,33 @@ import { PlansContainer, HeaderText, PlanWrapper, BottomContainer, Line } from '
 import { Plan } from './Plan/plan'
 
 export function MyPlans( {
-    user, userData,
+    user, userData, plans
 } ) {
+    var hasActivePlan = false;
+    var activePlan = [];
+    try {
+        hasActivePlan = plans.activePlan.length > 0;
+        activePlan = plans.activePlan[0];
+        if (hasActivePlan == true) {
+            activePlan = plans.activePlan[0];
+        }
+    } catch (err) {
+        
+    }
     return (
         <>
             <PlansContainer> 
-                <HeaderText>Myyy Plans</HeaderText>
-                <Plan user={ user } userData={ userData }></Plan>
-                <Plan user={ user } userData={ userData }></Plan>
-                <Plan user={ user } userData={ userData }></Plan>
+                <HeaderText>My Plans</HeaderText>
+                {hasActivePlan? (
+                    <Plan user={ user } userData={ userData } plans={ activePlan }></Plan>
+                ) : (
+                    <h1>No Plans!</h1>
+                )}
+                {
+                    plans.standByPlan.map((plan) => (
+                        <Plan user={ user } userData={ userData } plans={ plan }></Plan>
+                    ))
+                }
                 <BottomContainer>
                     <Line></Line>
                     <Stack direction='column' spacing={5} mt={7}>

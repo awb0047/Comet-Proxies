@@ -9,3 +9,8 @@ export function getUserData() {
     return axios.get('http://localhost:3001/api/users/data/splooti', {
         withCredentials: true } );
 }
+
+export function getUserPlans() {
+    return axios.get('http://localhost:3001/api/users/plans/splooti', {
+        withCredentials: true } );
+}

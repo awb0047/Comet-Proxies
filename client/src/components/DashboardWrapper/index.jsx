@@ -1,22 +1,20 @@
 import React from "react";
-import { Menu, MenuButton, MenuList, MenuItem, IconButton, Button, Stack, } from '@chakra-ui/react'
-import { ChevronDownIcon, InfoIcon, PhoneIcon} from '@chakra-ui/icons'
 
 import '../../utils/styles/dashstyle.css'
-import {Nav, InnerNav , User, Picture, Tag, Logo} from './NavStyling'
 import { Heading } from './Heading/heading'
 import { MyPlans} from './MyPlans/myplans'
+import { Overview } from './Overview/overview'
 import { Side } from './SideStyling'
-import { Mainbody_container, ResisDash } from './MainStyling'
+import { Mainbody_container, Innerbody} from './MainStyling'
 
 export function SideBar( {
-    user, userData,
+    user, userData, plans
 } ) {
     return (
         <>
             <Side>
                 <Heading user={ user } userData={ userData }></Heading>
-                <MyPlans user={ user } userData={ userData }></MyPlans>
+                <MyPlans user={ user } userData={ userData } plans={ plans }></MyPlans>
             </Side>
         </>
     );
@@ -28,7 +26,9 @@ export function MainBody( {
     return (
         <>
             <Mainbody_container>
-                <ResisDash></ResisDash>
+                <Innerbody>
+                    <Overview></Overview>
+                </Innerbody>
             </Mainbody_container>
         </>
     );

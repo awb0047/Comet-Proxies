@@ -11,9 +11,6 @@ function App() {
       <Route path='/menu' element={<MenuPage/>} />
       <Route path='/dashboard' element={<DashboardPage/>} />
     </Routes>
-    // <div className="App">
-    //   <Button colorScheme='orange'>Button</Button>
-    // </div>
   );
 }
 

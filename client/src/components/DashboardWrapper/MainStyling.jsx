@@ -6,6 +6,14 @@ const Colors = {
     color3: '#1F2328',
     color4: '#282D34',
     color5: '#333A42',
+    color6: '#606B78',
+    color7: '#9FB0C3',
+    color8: '#FFFFFF',
+    color9: '#C74E4E',
+    color10: '#FEB950',
+    color11: '#33E99D',
+    color12: '#94ECFF',
+    color13: '#478BC9',
 };
 
 export const Mainbody_container = styled.div`
@@ -15,12 +23,11 @@ background: ${Colors.color2};
     float: right;
     display: flex;
     justify-content: center;
-    align-items: center;
 `
 
-export const ResisDash = styled.div`
-    background: ${Colors.discordGrey3};
-    height: calc(100% - 50px);
-    width: calc(100% - 50px);
-    float: right;
+export const Innerbody = styled.div`
+    //background: ${Colors.color5};
+    height: calc(100% - 560px);
+    width: calc(100% - 100px);
+    margin-top: 160px
 `
