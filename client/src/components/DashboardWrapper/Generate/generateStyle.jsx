@@ -16,14 +16,15 @@ const Colors = {
     color13: '#478BC9',
 };
 
-export const OverviewContainer = styled.div`
+export const GenerateContainer = styled.div`
     position: absolute;
-    height: 215px;
-    width: 370px;
+    height: 450px;
+    width: 310px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    left: 50px
+    bottom: 10px;
+    left: 50px;
 `
 
 export const Title = styled.h1`
@@ -33,9 +34,9 @@ export const Title = styled.h1`
     float: left;
 `
 
-export const InnerOverview = styled.div`
+export const InnerGenerate = styled.div`
     position: absolute;
-    height: 160px;
+    height: 400px;
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -45,10 +46,18 @@ export const InnerOverview = styled.div`
     bottom: 0;
     padding: 20px;
 `
+export const BottomContainer = styled.div`
+    position: absolute; 
+    height: 70px;
+    width: 350px;
+    bottom: 0;
+`
 
-export const InnerTitle = styled.h1`
-    font-size: 16px;
-    font-weight: normal;
-    color: ${Colors.color7};
-    float: left;
+export const Line = styled.div`
+    position: absolute;
+    background: #282D34;
+    height: 3px;
+    width: 270px;
+    border-radius: 5px;
+    top: 0;
 `

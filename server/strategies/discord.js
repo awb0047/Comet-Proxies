@@ -1,6 +1,7 @@
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord');
 const User = require('../database/schemas/User');
+const SidGenerator = require('../utils/genSid');
 
 passport.serializeUser((user, done) => {
     console.log("Serializing User...");
@@ -50,10 +51,27 @@ passport.use(
                 console.log("User was found");
                 return done(null, findUser);
             } else {
+                console.log("Test!");
+                var generatedSid = SidGenerator.genSID();
+                var generatedPass = SidGenerator.genPass();
+                var generatedUser = SidGenerator.genPass();
+                var UniqueSid = false;
+                while (UniqueSid === false) {
+                    const findSid = await User.findOne({ sid: `${generatedSid}` })
+                    if (!findSid) {
+                        UniqueSid = true;
+                    }
+                    else {
+                        generatedSid = SidGenerator.genSID();
+                    }
+                }
                 const newUser = await User.create( {
                     discordId: id,
                     discordTag: `${username}#${discriminator}`,
                     avatar,
+                    sid: `${generatedSid}`,
+                    proxyUser: `${generatedUser}`,
+                    proxyPass: `${generatedPass}`,
                     guilds,
                 } );
                 return done(null, newUser);

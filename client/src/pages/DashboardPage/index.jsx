@@ -15,27 +15,27 @@ export function DashboardPage( {
     React.useEffect( () => {
         getUserDetails()
         .then( ( {data} ) => {
-            //console.log(data);
             setUser(data);
-            return getUserData();
+            return getUserData(data.proxyUser);
         }).then( ( { data } ) => {
-            //console.log(data);
             setUserData( data )
-            return getUserPlans();
+            return getUserPlans(data.user);
         }).then( ( { data } ) => {
             setPlans( data )
             setLoading(false);
         }).catch( ( err ) => {
+            console.log(err);
             window.location.href = '/'
             setLoading(false);
         } );
     }, [])
+    
 
     return !loading && (
         <div className="main-container">
             {/* <NavBar user={ user } userData={ userData }/> */}
             <SideBar user={ user } userData={ userData } plans={ plans } />
-            <MainBody user={ user } userData={ userData }/>
+            <MainBody user={ user } userData={ userData } plans={ plans }/>
         </div>
     );
 }

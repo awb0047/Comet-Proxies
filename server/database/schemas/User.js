@@ -14,6 +14,21 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true
   },
+  sid: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  proxyUser: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  proxyPass: {
+    type: String,
+    required: true,
+    unique: true
+  },
   guilds: {
     type: Array,
     require: true,

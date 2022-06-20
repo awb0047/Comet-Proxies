@@ -5,12 +5,12 @@ export function getUserDetails() {
         withCredentials: true } );
 }
 
-export function getUserData() {
-    return axios.get('http://localhost:3001/api/users/data/splooti', {
+export function getUserData(proxyUser) {
+    return axios.get(`http://localhost:3001/api/users/data/${proxyUser}`, {
         withCredentials: true } );
 }
 
-export function getUserPlans() {
-    return axios.get('http://localhost:3001/api/users/plans/splooti', {
+export function getUserPlans(proxyUser) {
+    return axios.get(`http://localhost:3001/api/users/plans/${proxyUser}`, {
         withCredentials: true } );
 }

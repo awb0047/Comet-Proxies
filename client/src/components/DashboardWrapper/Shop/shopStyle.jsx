@@ -16,14 +16,14 @@ const Colors = {
     color13: '#478BC9',
 };
 
-export const OverviewContainer = styled.div`
+export const ShopContainer = styled.div`
     position: absolute;
     height: 215px;
-    width: 370px;
+    width: 500px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    left: 50px
+    left: 438px;
 `
 
 export const Title = styled.h1`
@@ -33,7 +33,7 @@ export const Title = styled.h1`
     float: left;
 `
 
-export const InnerOverview = styled.div`
+export const InnerShop = styled.div`
     position: absolute;
     height: 160px;
     width: 100%;

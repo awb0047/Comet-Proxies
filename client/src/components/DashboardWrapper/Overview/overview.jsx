@@ -1,5 +1,5 @@
 import React from "react";
-import { OverviewContainer, Title, InnerOverview } from './overviewStyle'
+import { OverviewContainer, Title, InnerOverview, InnerTitle } from './overviewStyle'
 
 export function Overview( {
     user, userData,
@@ -9,7 +9,9 @@ export function Overview( {
         <>
             <OverviewContainer>
                 <Title>Overview</Title>
-                <InnerOverview></InnerOverview>
+                <InnerOverview>
+                    <InnerTitle>Upcoming Renewals</InnerTitle>
+                </InnerOverview>
             </OverviewContainer>
         </>
     );

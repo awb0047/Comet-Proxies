@@ -7,7 +7,7 @@ router.get(`/data/:username`, async (req, res) => {
     var status_response = ''
     var customer_index = '';
     for (var i = 0; i < usersData.result.customers.length; i++) {
-        if (usersData.result.customers[i].customer_name.toLowerCase() == username.toLowerCase()) {
+        if (usersData.result.customers[i].customer_login_name.toLowerCase() == username.toLowerCase()) {
             if (usersData.result.customers[i].name.includes("allocation") && usersData.result.customers[i].package_is_active == 1) {
                 customer_index = i;
                 status_response = 'customer active'
@@ -23,6 +23,7 @@ router.get(`/data/:username`, async (req, res) => {
         res.json({
             response: status_response,
             name: usersData.result.customers[customer_index].customer_name,
+            user: usersData.result.customers[customer_index].customer_login_name,
             usage: usersData.result.customers[customer_index].used,
             total: usersData.result.customers[customer_index].bandwidth,
             start: usersData.result.customers[customer_index].start_date,
@@ -45,7 +46,7 @@ router.get(`/plans/:username`, async (req, res) => {
 
     //Checks if customer exists
     for (var i = 0; i < usersData.result.customers.length; i++) {
-        if (usersData.result.customers[i].customer_name.toLowerCase() == username.toLowerCase()) {
+        if (usersData.result.customers[i].customer_login_name.toLowerCase() == username.toLowerCase()) {
             if (usersData.result.customers[i].name.includes("allocation")) {
                 status_response = 'customer exists';
                 break
@@ -58,7 +59,7 @@ router.get(`/plans/:username`, async (req, res) => {
 
     //Checks Plans
     for (var i = 0; i < usersData.result.customers.length; i++) {
-        if (usersData.result.customers[i].customer_name.toLowerCase() == username.toLowerCase()) {
+        if (usersData.result.customers[i].customer_login_name.toLowerCase() == username.toLowerCase()) {
             if (usersData.result.customers[i].name.includes("allocation")) {
                 if (usersData.result.customers[i].package_is_active == 1)
                 {
