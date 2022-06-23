@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 const routes = require('./routes');
 
 //Mongoose Connections
-mongoose.connect('mongodb://127.0.0.1/comet');
+mongoose.connect(process.env.MONGO_URI);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
@@ -25,7 +25,7 @@ db.once("open", function () {
 });
 
 app.use(cors( {
-    origin: ['http://localhost:3000'],
+    origin: [process.env.LANDIN_URL],
     credentials: true,
 }))
 
@@ -34,7 +34,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 60000 * 60 * 24},
-    store: Store.create({mongoUrl: 'mongodb://127.0.0.1/comet'}),
+    store: Store.create({mongoUrl: process.env.MONGO_URI}),
 }))
 
 app.use(passport.initialize());

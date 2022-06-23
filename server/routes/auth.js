@@ -4,7 +4,7 @@ const passport = require('passport');
 router.get('/discord', passport.authenticate('discord') );
 
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) => {
-    res.redirect('http://localhost:3000/dashboard')
+    res.redirect(process.env.DASH_URL)
 });
 
 router.get('/', (req, res) => {
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.get('/logout', function (req, res){
     req.session.destroy(function (err) {
-      res.redirect('http://localhost:3000/');
+      res.redirect(process.env.LANDING_URL);
     });
 });
 
