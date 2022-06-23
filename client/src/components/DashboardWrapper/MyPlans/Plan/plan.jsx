@@ -7,6 +7,7 @@ export function Plan( {
 } ) {
     var dataLeft = (plans.bandwidth - plans.used)
     var percentDataLeft = (dataLeft / plans.bandwidth) * 100;
+    dataLeft = Math.round(dataLeft * 10) / 10;
     return (
         <>
             <PlanWrapper>

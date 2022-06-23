@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack, Button } from '@chakra-ui/react'
 import { CopyIcon, DownloadIcon } from '@chakra-ui/icons'
 import { BottomContainer, GenerateOutputContainer, InnerGenerate, Line, Proxies } from './generateOutputStyle'
 
+
 export function GenerateOutput( {
-    user, userData, gennedProxies
+    genProxies, proxiesGenerated
 } ) {
 
     return (
@@ -12,10 +13,11 @@ export function GenerateOutput( {
             <GenerateOutputContainer>
                 <InnerGenerate>
                     <Proxies>
-                    {
-                        gennedProxies.map((proxy) => (
-                            <h1>{proxy}</h1>
+                    { proxiesGenerated? (
+                        genProxies.map((proxy) => (
+                            proxy + '\n'
                         ))
+                    ) : 'Proxies Not Generated'
                     }
                     </Proxies>
                 </InnerGenerate>

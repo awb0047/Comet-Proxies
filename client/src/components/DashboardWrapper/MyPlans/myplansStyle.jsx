@@ -43,6 +43,7 @@ export const PlanWrapper = styled.div`
     width: 350px;
     margin-top: 20px;
     border-radius: 10px;
+    overflow: hidden;
 `
 
 export const BottomContainer = styled.div`
@@ -59,4 +60,22 @@ export const Line = styled.div`
     width: 350px;
     border-radius: 5px;
     top: 0;
+`
+
+export const PlansBox = styled.div`
+    margin-top: 20px;
+    height: 380px;
+    width: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: 3px;
+        background-color: ${Colors.color6};
+    }
 `

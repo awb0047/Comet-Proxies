@@ -1,14 +1,21 @@
 import React from "react";
-import { genProxies } from '../../../utils/gen'
+import { genProxies } from '../../../utils/api'
 import { Select, Stack, Button, Input } from '@chakra-ui/react'
 import { GenerateContainer, Title, InnerGenerate, BottomContainer, Line} from './generateStyle'
 
 export function Generate( {
-    setGenProxiesState,
+    user, userData, plans, setGenProxies, setProxiesGenerated
 } ) {
 
-    const onButtonClick=(mode)=>{
-        setGenProxiesState(mode)
+    const onButtonClick = async ()=>{
+        var proxyList = await genProxies(user.proxyUser, user.proxyPass, user.sid, plans.activePlan[0].bandwidth)
+        setTimeout(async function (){
+  
+            console.log(proxyList.length);
+            await setGenProxies(proxyList);
+            setProxiesGenerated(true);
+                      
+          }, 500);
     }
 
     return (
@@ -39,7 +46,7 @@ export function Generate( {
                     </Stack>
                     <BottomContainer>
                         <Line></Line>
-                        <Button onClick={() => onButtonClick(true)} background='#478BC9' color='white' variant='solid' mt={4} w='270px'>Generate</Button>
+                        <Button onClick={() => onButtonClick()} background='#478BC9' color='white' variant='solid' mt={4} w='270px'>Generate</Button>
                     </BottomContainer>
                 </InnerGenerate>
             </GenerateContainer>

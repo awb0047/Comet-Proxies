@@ -35,7 +35,7 @@ passport.use(
     callbackURL: process.env.DASHBOARD_CALLBACK_URL,
     scope: ['identify', 'guilds', 'email'],
     }, async (accessToken, refreshToken, profile, done ) => {
-        const { id, username, discriminator, avatar, guilds } = profile;
+        const { id, username, discriminator, avatar, guilds, email } = profile;
         //console.log( id, username, discriminator, avatar, guilds );
         try {
             const findUser = await User.findOneAndUpdate(
@@ -44,6 +44,7 @@ passport.use(
                     discordTag: `${username}#${discriminator}`,
                     avatar,
                     guilds,
+                    email,
                 },
                 {new: true}
             );
@@ -68,6 +69,7 @@ passport.use(
                 const newUser = await User.create( {
                     discordId: id,
                     discordTag: `${username}#${discriminator}`,
+                    email, 
                     avatar,
                     sid: `${generatedSid}`,
                     proxyUser: `${generatedUser}`,

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../utils/styles/dashstyle.css"
-import { SideBar, MainBody } from "../../components";
+import { SideBar, MainBody, PurchasePopUp } from "../../components";
 import { getUserDetails, getUserData, getUserPlans } from '../../utils/api'
 
 export function DashboardPage( {
@@ -29,13 +29,14 @@ export function DashboardPage( {
             setLoading(false);
         } );
     }, [])
-    
+
+    const [buttonPopup, setButtonPopup] = useState(false)
 
     return !loading && (
         <div className="main-container">
-            {/* <NavBar user={ user } userData={ userData }/> */}
-            <SideBar user={ user } userData={ userData } plans={ plans } />
+            <SideBar user={ user } userData={ userData } plans={ plans } setButtonPopup={setButtonPopup} />
             <MainBody user={ user } userData={ userData } plans={ plans }/>
+            <PurchasePopUp buttonPopup={buttonPopup} setButtonPopup={setButtonPopup} user={ user } userData={ userData } plans={ plans } />
         </div>
     );
 }

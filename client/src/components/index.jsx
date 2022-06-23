@@ -1,1 +1,1 @@
-export { SideBar, MainBody } from './DashboardWrapper'
+export { SideBar, MainBody, PurchasePopUp } from './DashboardWrapper'

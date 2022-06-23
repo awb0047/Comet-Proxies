@@ -18,5 +18,5 @@ export const Side = styled.div`
     align-items: center;
     padding-top: 50px;
     flex-direction: column;
-    z-index: 9;
+    z-index: 0;
 `

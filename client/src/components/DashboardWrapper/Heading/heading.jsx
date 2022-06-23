@@ -18,10 +18,10 @@ export function Heading( {
                     <Tag>{user.discordTag}</Tag>
                 </User>
                 <Stack direction='row' spacing={5} mt={5}>
-                    <Button leftIcon={<SettingsIcon />} colorScheme='teal' variant='outline' width={60}>
+                    <Button leftIcon={<SettingsIcon />} borderColor='#333A42' color='#333A42' variant='outline' width={60}>
                         Settings
                     </Button>
-                    <Button rightIcon={<DeleteIcon />} onClick={() => logout()} colorScheme='teal' variant='outline' width={60}>
+                    <Button rightIcon={<DeleteIcon />} onClick={() => logout()} borderColor='#333A42' color='#333A42' variant='outline' width={60}>
                         Log Out
                     </Button>
                 </Stack>

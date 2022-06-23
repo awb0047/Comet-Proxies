@@ -63,4 +63,15 @@ export const Proxies = styled.p`
     height: 250px;
     overflow: scroll;
     overflow-x: hidden;
+    white-space: pre-line;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: 3px;
+        background-color: ${Colors.color6};
+    }
 `
