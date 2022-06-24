@@ -34,7 +34,10 @@ app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 * 60 * 24},
+    cookie: {
+        domain: '.cometproxies.com',
+        maxAge: 60000 * 60 * 24
+    },
     store: Store.create({mongoUrl: process.env.MONGO_URI}),
 }))
 
