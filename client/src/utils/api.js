@@ -1,23 +1,23 @@
 import axios from 'axios';
 
 export function getUserDetails() {
-    return axios.get('http://45.33.101.29/api/auth', {
+    return axios.get('https://api.cometproxies.com/api/auth', {
         withCredentials: true } );
 }
 
 export function getUserData(proxyUser) {
-    return axios.get(`http://45.33.101.29/api/users/data/${proxyUser}`, {
+    return axios.get(`https://api.cometproxies.com/api/users/data/${proxyUser}`, {
         withCredentials: true } );
 }
 
 export function getUserPlans(proxyUser) {
-    return axios.get(`http://45.33.101.29/api/users/plans/${proxyUser}`, {
+    return axios.get(`https://api.cometproxies.com/api/users/plans/${proxyUser}`, {
         withCredentials: true } );
 }
 
 export function genProxies(proxyUser, proxyPass, sid, bandwidth) {
     var proxyList = [];
-    axios.post('http://45.33.101.29/api/gen/proxies', {
+    axios.post('https://api.cometproxies.com/api/gen/proxies', {
         proxyUser: proxyUser,
         proxyPass: proxyPass,
         sid: sid,
@@ -46,7 +46,7 @@ export async function stripeCheckout(id, discordId, discordTag, username, passwo
         } )
     }
 
-    const response = await fetch('http://45.33.101.29/api/stripe/checkout', options)
+    const response = await fetch('https://api.cometproxies.com/stripe/checkout', options)
     const result = await response.json();
     console.log(result.url);
     window.location = result.url;
