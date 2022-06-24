@@ -24,10 +24,12 @@ db.once("open", function () {
   console.log("Connected successfully");
 });
 
-app.use(cors( {
-    origin: [process.env.LANDING_URL],
-    credentials: true,
-}))
+// app.use(cors( {
+//     origin: [process.env.LANDING_URL],
+//     credentials: true,
+// }))
+
+app.use(cors());
 
 app.use(session({
     secret: 'secret',
