@@ -25,7 +25,7 @@ db.once("open", function () {
 });
 
 app.use(cors( {
-    origin: ['http://45.33.101.29'],
+    origin: ['*'],
     credentials: true,
 }))
 
