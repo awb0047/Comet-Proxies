@@ -13,14 +13,18 @@ export function DashboardPage( {
     const [ plans, setPlans] = React.useState( [] );
 
     React.useEffect( () => {
+        console.log('initting');
         getUserDetails()
         .then( ( {data} ) => {
+            console.log('data found');
             setUser(data);
             return getUserData(data.proxyUser);
         }).then( ( { data } ) => {
+            console.log('userData found');
             setUserData( data )
             return getUserPlans(data.user);
         }).then( ( { data } ) => {
+            console.log('plans found');
             setPlans( data )
             setLoading(false);
         }).catch( ( err ) => {
