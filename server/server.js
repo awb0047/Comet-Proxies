@@ -25,7 +25,7 @@ db.once("open", function () {
 });
 
 app.use(cors( {
-    origin: ['*'],
+    origin: "*",
     credentials: true,
 }))
 
