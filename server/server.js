@@ -26,7 +26,7 @@ db.once("open", function () {
 
 app.use(cors( {
     //origin: "http://45.33.101.29:3000",
-    origin: "http://www.cometproxies.com",
+    origin: "https://www.cometproxies.com",
     credentials: true,
 }))
 
@@ -35,7 +35,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        domain: 'cometproxies.com',
+        domain: '.cometproxies.com',
         maxAge: 60000 * 60 * 24,
     },
     store: Store.create({mongoUrl: process.env.MONGO_URI}),
