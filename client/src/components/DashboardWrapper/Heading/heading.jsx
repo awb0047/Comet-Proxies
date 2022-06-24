@@ -2,11 +2,11 @@ import React from "react";
 import { Stack, Button } from '@chakra-ui/react'
 import { SettingsIcon, DeleteIcon} from '@chakra-ui/icons'
 import { HeadingContainer, Logo, Welcome, Picture, Tag, User } from './headingStyle'
+import { logout } from '../../../utils/api'
 
 export function Heading( {
     user, userData,
 } ) {
-    const logout = () => window.location.href = 'http://45.33.101.29/api/auth/logout';
 
     return (
         <>
