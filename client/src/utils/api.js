@@ -2,7 +2,7 @@ import axios from 'axios';
 const subdomain = 'https://www.cometproxies.com/'
 
 export function login() {
-    window.location.href = `https://www.amazon.com/`
+    window.location.href = `https://stockx.com/`
 }
 
 export function logout() {
