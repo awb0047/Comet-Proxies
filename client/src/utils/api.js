@@ -2,7 +2,7 @@ import axios from 'axios';
 const subdomain = 'https://www.cometproxies.com/'
 
 export function login() {
-    window.location.href = `https://stockx.com/`
+    window.location.href = `${subdomain}api/auth/discord/`
 }
 
 export function logout() {
