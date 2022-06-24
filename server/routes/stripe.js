@@ -50,7 +50,7 @@ router.post('/checkout', async (req, res) => {
                     quantity: 1,
                 },
             ],
-            success_url: 'http://localhost:3000/dashboard',
+            success_url: process.env.DASH_URL,
             cancel_url: 'https://www.nike.com/',
         });
 

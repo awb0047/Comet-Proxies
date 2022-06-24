@@ -6,7 +6,7 @@ import { HeadingContainer, Logo, Welcome, Picture, Tag, User } from './headingSt
 export function Heading( {
     user, userData,
 } ) {
-    const logout = () => window.location.href = 'http://localhost:3001/api/auth/logout';
+    const logout = () => window.location.href = 'http://45.33.101.29:3001/api/auth/logout';
 
     return (
         <>
