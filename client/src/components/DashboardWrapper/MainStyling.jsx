@@ -18,17 +18,30 @@ const Colors = {
 
 export const Mainbody_container = styled.div`
     background: ${Colors.color2};
-    height: 100vh;
+    height: 100%;
     width: calc(100vw - 445px);
     float: right;
     display: flex;
-    // justify-content: center;
+    justify-content: center;
+    @media (max-width: 500px) {
+        // background: red;
+        float: left;
+        width: 100vw;
+        height: auto;
+    }
 `
 
 export const Innerbody = styled.div`
-    // background: ${Colors.color5};
-    height: calc(100% - 560px);
+    //background: ${Colors.color5};
+    height: 730px;
     width: 1000px;
     margin-top: 160px;
-    position: relative
+    position: relative;
+    
+    @media (max-width: 500px) {
+        // background: transparent;
+        width: 100%
+        margin-top: 0px;
+        height: auto;
+    }
 `

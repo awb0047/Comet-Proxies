@@ -23,7 +23,13 @@ export const OverviewContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    left: 50px
+    left: 50px;
+
+    @media (max-width: 500px) {
+        position: relative;
+        left: 0px;
+        margin: 0 auto;
+    }
 `
 
 export const Title = styled.h1`

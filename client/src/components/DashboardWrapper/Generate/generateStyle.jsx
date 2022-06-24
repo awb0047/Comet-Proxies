@@ -25,6 +25,13 @@ export const GenerateContainer = styled.div`
     flex-direction: column;
     bottom: 10px;
     left: 50px;
+
+    @media (max-width: 500px) {
+        position: relative;
+        left: 0px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
 `
 
 export const Title = styled.h1`

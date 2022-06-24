@@ -24,6 +24,14 @@ export const GenerateOutputContainer = styled.div`
     left: 380px;
     background: ${Colors.color3};
     border-radius: 8px;
+
+    @media (max-width: 500px) {
+        position: relative;
+        left: 0px;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 350px;
+    }
 `
 
 export const InnerGenerate = styled.div`

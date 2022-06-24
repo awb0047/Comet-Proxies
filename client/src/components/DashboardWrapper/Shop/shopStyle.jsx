@@ -24,6 +24,14 @@ export const ShopContainer = styled.div`
     justify-content: flex-start;
     flex-direction: column;
     left: 438px;
+
+    @media (max-width: 500px) {
+        position: relative;
+        left: 0px;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 350px;
+    }
 `
 
 export const Title = styled.h1`

@@ -1,5 +1,10 @@
+body {
+    overflow-x: hidden;
+}
+
 .main-container {
     background-color: #1e2124;
     height: 100vh;
     width: 100vw;
+    min-height: 920px;
 }

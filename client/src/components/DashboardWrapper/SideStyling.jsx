@@ -10,7 +10,7 @@ const Colors = {
 
 export const Side = styled.div`
     background: ${Colors.color1};
-    height: 100vh;
+    height: 100%;
     width: 445px;
     position: sticky;
     float: left;
@@ -19,4 +19,9 @@ export const Side = styled.div`
     padding-top: 50px;
     flex-direction: column;
     z-index: 0;
+
+    @media (max-width: 500px) {
+        float: left;
+        width: 100vw;
+    }
 `
