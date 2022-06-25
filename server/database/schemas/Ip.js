@@ -8,6 +8,6 @@ const IpSchema = new mongoose.Schema({
 
 });
 
-const Ip = mongoose.model("Ip", UserSchema);
+const Ip = mongoose.model("Ip", IpSchema);
 
 module.exports = Ip;
