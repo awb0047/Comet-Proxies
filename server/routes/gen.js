@@ -1,8 +1,11 @@
 const express = require('express');
 const router = require('express').Router();
+const Gen = require('../utils/genSid');
+const Ip = require('../database/schemas/Ip');
+
 router.use(express.json());
 
-router.post('/proxies', (req, res) => {
+router.post('/proxies', async (req, res) => {
     var data = req.body.bandwidth;
     var count = 0;
 
@@ -30,11 +33,38 @@ router.post('/proxies', (req, res) => {
     else {
         count = 2000;
     }
-    
+
+    // const newIp = await Ip.create( {
+    //     ips: { 
+    //         ip1: '147.135.22.3',
+    //         ip2: '51.81.26.153',
+    //         ip3: '51.81.13.191',
+    //         ip4: '51.81.26.235',
+    //     }
+    // } );
+
+    const foundIps = await Ip.findById('62b69e016c3ed6f7ee1b31e0')
     
     var proxyList = []
     for (var i = 0; i < count; i++) {
-        let proxy = `pa-cometproxies-us.ntnt.io:5959:${req.body.proxyUser}-cc-cpus-sid-${req.body.sid + '-' + (i+1)}:${req.body.proxyPass}`
+        var ip;
+        var ipNum = Gen.randomFour();
+        if (ipNum === 1) {
+            ip = foundIps.ips[0].ip1
+        }
+    
+        if (ipNum === 2) {
+            ip = foundIps.ips[0].ip2
+        }
+    
+        if (ipNum === 3) {
+            ip = foundIps.ips[0].ip3
+        }
+    
+        if (ipNum === 4) {
+            ip = foundIps.ips[0].ip4
+        }
+        let proxy = `${ip}:5959:${req.body.proxyUser}-cc-cpus-sid-${req.body.sid + '-' + (i+1)}:${req.body.proxyPass}`
         proxyList.push(proxy);
     }
     res.json(proxyList)

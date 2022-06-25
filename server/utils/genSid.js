@@ -5,6 +5,10 @@ function genSID() {
     return num;
 }
 
+function randomFour() {
+    return Math.floor(Math.random() * (4 - 1 + 1) + 1)
+}
+
 function genPass() {
     var length = 8,
         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
@@ -15,4 +19,6 @@ function genPass() {
     return retVal;
 }
 
-module.exports = { genSID, genPass }
+module.exports = { genSID, genPass, randomFour }
+
+console.log(randomFour());
