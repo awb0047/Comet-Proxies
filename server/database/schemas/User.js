@@ -37,6 +37,10 @@ const UserSchema = new mongoose.Schema({
   guilds: {
     type: Array,
     require: true,
+  },
+  currentIps: {
+    type: Array,
+    require: true,
   }
 
 });

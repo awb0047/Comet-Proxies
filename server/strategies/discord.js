@@ -75,6 +75,7 @@ passport.use(
                     proxyUser: `${generatedUser}`,
                     proxyPass: `${generatedPass}`,
                     guilds,
+                    currentIps: {},
                 } );
                 return done(null, newUser);
             }
