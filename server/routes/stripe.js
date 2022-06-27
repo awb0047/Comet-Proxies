@@ -122,27 +122,28 @@ router.post('/webhook', async (req, res) => {
       case 'checkout.session.completed':
         console.log(data.object.metadata);
 
-        await api.createNetNutUser(
+        // await api.createNetNutUser(
+        //   data.object.metadata.discordId,
+        //   data.object.metadata.discordTag,
+        //   data.object.metadata.username,
+        //   data.object.metadata.password,
+        //   data.object.metadata.email,
+        // ).then(response => console.log(response)
+        // ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
+        // .then(response => console.log(response)))
+
+        const response = await api.createNetNutUser
+        (
           data.object.metadata.discordId,
           data.object.metadata.discordTag,
           data.object.metadata.username,
           data.object.metadata.password,
           data.object.metadata.email,
-        ).then(response => console.log(response))
-        // ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
-        // .then(response => console.log(response)))
-
-        // ).then(console.log('allocating data!'))
-
-        // const form = new FormData();
-        // form.append("customer_name", data.object.metadata.discordTag);
-        // form.append("customer_dashboard_email", data.object.metadata.email);
-        // form.append("customer_dashboard_pwd", data.object.metadata.password);
-        // form.append("customer_login_name", data.object.metadata.username);
-        // form.append("customer_login_pwd", data.object.metadata.password);
-        // form.append("customer_country_code", "us");
-        // form.append("loginEmail", "cometproxies1@gmail.com");
-        // form.append("loginPassword", "Proxiescom098!");
+        )
+        
+        console.log(response);
+        const dataResponse = await api.allocateData(data.object.metadata.username, 0);
+        console.log(dataResponse);
 
         break;
       case 'invoice.paid':
