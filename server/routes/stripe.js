@@ -142,7 +142,7 @@ router.post('/webhook', async (req, res) => {
         )
         
         console.log(response);
-        const dataResponse = await api.allocateData(data.object.metadata.username, 0);
+        const dataResponse = await api.allocateData(data.object.metadata.username, 1);
         console.log(dataResponse);
 
         break;
