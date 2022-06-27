@@ -18,7 +18,7 @@ async function createNetNutUser(discordId, discordTag, username, password, email
     const newEmail = username + '@bettersneaks.com';
     
     const form = new FormData();
-    form.append("customer_name", test123456);
+    form.append("customer_name", 'test123456');
     form.append("customer_dashboard_email", newEmail);
     form.append("customer_dashboard_pwd", password);
     form.append("customer_login_name", username);
