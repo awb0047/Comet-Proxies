@@ -13,7 +13,7 @@ router.use(
   })
 );
 
-const stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 
 const storeItems = new Map([
@@ -90,7 +90,7 @@ router.post('/webhook', async (req, res) => {
     let data;
     let eventType;
     // Check if webhook signing is configured.
-    const webhookSecret = 'whsec_Fgmc7Lvm572TYH8nQ1ltrpuhXURKKR8G';
+    const webhookSecret = 'whsec_QagtpaAvebWkfCabPzGPAgw2ooYSewPw';
   
     if (webhookSecret) {
       // Retrieve the event by verifying the signature using the raw body and secret.
@@ -142,7 +142,7 @@ router.post('/webhook', async (req, res) => {
         )
         
         console.log(response);
-        const dataResponse = await api.allocateData('tEpwodslP', 1);
+        const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
         console.log(dataResponse);
 
         break;
