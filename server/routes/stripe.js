@@ -15,6 +15,29 @@ router.use(
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
+const fnf = await stripe.coupons.create({percent_off: 30, id: 1});
+const notify = await stripe.coupons.create({percent_off: 25, id: 2});
+const groupbuy = await stripe.coupons.create({percent_off: 20, id: 3});
+const discord = await stripe.coupons.create({percent_off: 15, id: 4});
+
+const fnfCode = await stripe.promotionCodes.create({
+  coupon: 1,
+  code: 'gijepfnf',
+});
+const noityCode = await stripe.promotionCodes.create({
+  coupon: 2,
+  code: 'odkonotify',
+});
+const groupbuyCode = await stripe.promotionCodes.create({
+  coupon: 3,
+  code: 'iogifgdgb',
+});
+const discordCode = await stripe.promotionCodes.create({
+  coupon: 4,
+  code: 'd1zk0rb',
+});
+
+
 const storeItems = new Map([
     [1, { priceInCents: 8500, name: '200 IP Plan', gb: 5}],
     [2, { priceInCents: 16000, name: '400 IP Plan', gb: 10}],
@@ -29,6 +52,7 @@ router.post('/checkout', async (req, res) => {
         const planId = Number(req.body.id);
         const session = await stripe.checkout.sessions.create({
             mode: "payment",
+            allow_promotion_codes: true,
             payment_method_types: ["card"],
             metadata: {
               discordId: req.body.discordId,
@@ -51,7 +75,7 @@ router.post('/checkout', async (req, res) => {
                 },
             ],
             success_url: process.env.DASH_URL,
-            cancel_url: 'https://www.nike.com/',
+            cancel_url: process.env.DASH_URL,
         });
 
         res.json({ url: session.url })
