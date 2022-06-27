@@ -15,9 +15,11 @@ async function getNetNutData() {
 }
 
 async function createNetNutUser(discordId, discordTag, username, password, email) {
+    const newEmail = username + '@bettersneaks.com';
+    
     const form = new FormData();
     form.append("customer_name", discordTag);
-    form.append("customer_dashboard_email", email);
+    form.append("customer_dashboard_email", newEmail);
     form.append("customer_dashboard_pwd", password);
     form.append("customer_login_name", username);
     form.append("customer_login_pwd", password);
