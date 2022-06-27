@@ -128,9 +128,9 @@ router.post('/webhook', async (req, res) => {
           data.object.metadata.username,
           data.object.metadata.password,
           data.object.metadata.email,
-        ).then(response => console.log(response)
-        ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
-        .then(response => console.log(response)))
+        ).then(response => console.log(response))
+        // ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
+        // .then(response => console.log(response)))
 
         // ).then(console.log('allocating data!'))
 
