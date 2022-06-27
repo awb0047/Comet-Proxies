@@ -90,7 +90,7 @@ router.post('/webhook', async (req, res) => {
     let data;
     let eventType;
     // Check if webhook signing is configured.
-    const webhookSecret = 'whsec_QagtpaAvebWkfCabPzGPAgw2ooYSewPw';
+    const webhookSecret = 'whsec_SJLzWKqIHgRMY30V4kiY4dAzB2Lm0I3T';
   
     if (webhookSecret) {
       // Retrieve the event by verifying the signature using the raw body and secret.
