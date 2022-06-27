@@ -132,18 +132,20 @@ router.post('/webhook', async (req, res) => {
         // ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
         // .then(response => console.log(response)))
 
-        const response = await api.createNetNutUser
-        (
-          data.object.metadata.discordId,
-          data.object.metadata.discordTag,
-          data.object.metadata.username,
-          data.object.metadata.password,
-          data.object.metadata.email,
-        )
+        //UNCOMMENT BELOW
+
+        // const response = await api.createNetNutUser
+        // (
+        //   data.object.metadata.discordId,
+        //   data.object.metadata.discordTag,
+        //   data.object.metadata.username,
+        //   data.object.metadata.password,
+        //   data.object.metadata.email,
+        // )
         
-        console.log(response);
-        const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
-        console.log(dataResponse);
+        // console.log(response);
+        // const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
+        // console.log(dataResponse);
 
         break;
       case 'invoice.paid':
