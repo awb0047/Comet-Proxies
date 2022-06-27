@@ -13,7 +13,7 @@ router.use(
   })
 );
 
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
 
 
 const storeItems = new Map([
