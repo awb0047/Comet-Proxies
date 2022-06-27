@@ -90,7 +90,7 @@ router.post('/webhook', async (req, res) => {
     let data;
     let eventType;
     // Check if webhook signing is configured.
-    const webhookSecret = 'whsec_b9cb7234d797e1023ae8e0fd33c1198da7bf1cfc2093bd8c7ce5bfba124f0be4';
+    const webhookSecret = 'whsec_QagtpaAvebWkfCabPzGPAgw2ooYSewPw';
   
     if (webhookSecret) {
       // Retrieve the event by verifying the signature using the raw body and secret.
@@ -129,10 +129,10 @@ router.post('/webhook', async (req, res) => {
           data.object.metadata.password,
           data.object.metadata.email,
         ).then(response => console.log(response)
-        // ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
-        // .then(response => console.log(response)))
+        ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
+        .then(response => console.log(response)))
 
-        ).then(console.log('allocating data!'))
+        // ).then(console.log('allocating data!'))
 
         // const form = new FormData();
         // form.append("customer_name", data.object.metadata.discordTag);
