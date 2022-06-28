@@ -26,7 +26,31 @@ export function Generate( {
         activePlan = plans.activePlan[0];
         if (hasActivePlan == true) {
             activePlan = plans.activePlan[0];
-            proxyNumber = activePlan.bandwidth;
+            
+            if (activePlan.bandwidth === 0) {
+                proxyNumber = 0;
+            }
+            else if (activePlan.bandwidth === 5) {
+                proxyNumber = 200;
+            }
+            else if (activePlan.bandwidth === 10) {
+                proxyNumber = 400;
+            }
+            else if (activePlan.bandwidth === 20) {
+                proxyNumber = 600;
+            }
+            else if (activePlan.bandwidth === 30) {
+                proxyNumber = 800;
+            }
+            else if (activePlan.bandwidth === 40) {
+                proxyNumber = 1000;
+            }
+            else if (activePlan.bandwidth === 50) {
+                proxyNumber = 1200;
+            }
+            else {
+                proxyNumber = 2000;
+            }
         }
     } catch (err) {
         
