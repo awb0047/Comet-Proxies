@@ -18,6 +18,20 @@ export function Generate( {
           }, 500);
     }
 
+    var hasActivePlan = false;
+    var activePlan = [];
+    var proxyNumber;
+    try {
+        hasActivePlan = plans.activePlan.length > 0;
+        activePlan = plans.activePlan[0];
+        if (hasActivePlan == true) {
+            activePlan = plans.activePlan[0];
+            proxyNumber = activePlan.bandwidth;
+        }
+    } catch (err) {
+        
+    }
+
     return (
         <>
             <GenerateContainer>
@@ -42,7 +56,7 @@ export function Generate( {
                         color='#9FB0C4'
                         placeholder='United States'
                     />
-                    <Input variant='filled' bg='#121518' _placeholder={{ color: '#333A42' }} color='white' placeholder='Maximum 200' />
+                    <Input variant='filled' bg='#121518' _placeholder={{ color: '#333A42' }} color='white' placeholder={'maximum ' + proxyNumber} />
                     </Stack>
                     <BottomContainer>
                         <Line></Line>
