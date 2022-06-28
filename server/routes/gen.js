@@ -2,11 +2,13 @@ const express = require('express');
 const router = require('express').Router();
 const Gen = require('../utils/genSid');
 const Ip = require('../database/schemas/Ip');
+const User = require('../database/schemas/User');
 
 router.use(express.json());
 
 router.post('/proxies', async (req, res) => {
     var data = req.body.bandwidth;
+    var user = req.body.proxyUser;
     var count = 0;
 
     if (data === 0) {
@@ -44,6 +46,8 @@ router.post('/proxies', async (req, res) => {
     // } );
 
     const foundIps = await Ip.findById('62b69e016c3ed6f7ee1b31e0')
+    console.log(foundIps.ips[0].ip1);
+    
     
     var proxyList = []
     for (var i = 0; i < count; i++) {
@@ -64,10 +68,25 @@ router.post('/proxies', async (req, res) => {
         if (ipNum === 4) {
             ip = foundIps.ips[0].ip4
         }
-        let proxy = `${ip}:5959:${req.body.proxyUser}-cc-cpus-sid-${req.body.sid + '-' + (i+1)}:${req.body.proxyPass}`
+        let randomGennedSid = Gen.genSID();
+        let proxy = `${ip}:5959:${req.body.proxyUser}-cc-cpus-sid-${randomGennedSid}:${req.body.proxyPass}`
         proxyList.push(proxy);
     }
-    res.json(proxyList)
+
+    const findUser = await User.findOne({ proxyUser: user })
+    if (findUser.currentIps.length != count) {
+        const updateUser = await User.findOneAndUpdate(
+            {proxyUser: user },
+            {
+                currentIps: proxyList,
+            },
+            {new: true}
+        );
+        res.json(proxyList);
+    }
+    else {
+        res.json(findUser.currentIps);
+    }
 } );
 
 module.exports = router;

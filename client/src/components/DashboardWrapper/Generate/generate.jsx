@@ -53,7 +53,7 @@ export function Generate( {
             }
         }
     } catch (err) {
-        
+        proxyNumber = 0;
     }
 
     return (
