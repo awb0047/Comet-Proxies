@@ -19,8 +19,9 @@ const Colors = {
 export const PlansContainer = styled.div`
     position: relative;
     // background: ${Colors.color3};
-    height: 570px;
+    height: auto;
     width: 350px;
+    max-height: calc(100% - 300px);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -47,14 +48,14 @@ export const PlanWrapper = styled.div`
 `
 
 export const BottomContainer = styled.div`
-    position: absolute; 
+    //position: absolute; 
     height: 130px;
     width: 350px;
-    bottom: 0;
+    // bottom: 0;
 `
 
 export const Line = styled.div`
-    position: absolute;
+    //position: absolute;
     background: #22262C;
     height: 3px;
     width: 350px;
@@ -62,9 +63,19 @@ export const Line = styled.div`
     top: 0;
 `
 
+export const NoPlans = styled.h1`
+    width: auto;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    color: ${Colors.color4};
+    float: left;
+    margin-left: 5px;
+`
+
 export const PlansBox = styled.div`
     margin-top: 20px;
-    height: 380px;
+    height: auto;
     width: 350px;
     overflow-y: scroll;
     overflow-x: hidden;

@@ -26,7 +26,7 @@ export function MyPlans( {
                     {hasActivePlan? (
                         <Plan user={ user } userData={ userData } plans={ activePlan }></Plan>
                     ) : (
-                        <h1>No Plans!</h1>
+                        <NoPlans>Plans will appear here as you buy them</NoPlans>
                     )}
                     {
                         plans.standByPlan.map((plan) => (
@@ -50,7 +50,7 @@ export function MyPlans( {
                         <Button onClick={() => setButtonPopup(true)} leftIcon={<AddIcon />} background='#478BC9' color='white' variant='solid'>
                             Buy New Plans
                         </Button>
-                        <Button background='transparent' color='#606B78' variant='outline'>
+                        <Button background='transparent' color='#606B78' borderColor='#606B78' variant='outline'>
                             Manage Plans
                         </Button>
                     </Stack>

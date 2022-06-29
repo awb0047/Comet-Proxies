@@ -19,7 +19,7 @@ const Colors = {
 export const PlanWrapper = styled.div`
     background: ${Colors.color2};
     height: 100px;
-    width: 350px;
+    width: 345px;
     margin-bottom: 20px;
     border-radius: 10px;
     display: flex;
