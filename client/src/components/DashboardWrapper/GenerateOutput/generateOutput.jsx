@@ -8,6 +8,14 @@ export function GenerateOutput( {
     genProxies, proxiesGenerated
 } ) {
 
+    const onButtonClick = async ()=>{
+        var proxyListCopy = "";
+        for (var i = 0; i < genProxies.length; i++) {
+            proxyListCopy += genProxies[i] + "\n"
+        }
+        navigator.clipboard.writeText(proxyListCopy)
+    }
+
     return (
         <>
             <GenerateOutputContainer>
@@ -24,7 +32,7 @@ export function GenerateOutput( {
                 <BottomContainer>
                     <Line></Line>
                     <Stack direction='row' spacing={3}>
-                        <Button leftIcon={<CopyIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
+                    <Button onClick={() => onButtonClick()} leftIcon={<CopyIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
                             Copy All
                         </Button>
                         <Button leftIcon={<DownloadIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
