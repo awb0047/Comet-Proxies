@@ -8,10 +8,16 @@ async function getBotGuilds() {
 }
 
 async function getNetNutData() {
-    const api_url = `https://reseller-api.netnut.io/api/aff/customers?loginEmail=cometproxies1@gmail.com&loginPassword=Proxiescom098!`
-    const fetch_response = await fetch(api_url);
-    const json = await fetch_response.json();
-    return json;
+    try {
+        const api_url = `https://reseller-api.netnut.io/api/aff/customers?loginEmail=cometproxies1@gmail.com&loginPassword=Proxiescom098!`
+        const fetch_response = await fetch(api_url);
+        const json = await fetch_response.json();
+        return json;
+    } catch (err) {
+        const json = {err: 'Error fetching Data'}
+        console.log(err);
+        return json;
+    }
 }
 
 async function createNetNutUser(discordId, discordTag, username, password, email) {
