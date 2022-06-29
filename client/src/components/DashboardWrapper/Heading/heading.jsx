@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Button } from '@chakra-ui/react'
-import { SettingsIcon, DeleteIcon} from '@chakra-ui/icons'
+import { SettingsIcon, DeleteIcon, CloseIcon} from '@chakra-ui/icons'
 import { HeadingContainer, Logo, Welcome, Picture, Tag, User } from './headingStyle'
 import { logout } from '../../../utils/api'
 
@@ -21,7 +21,7 @@ export function Heading( {
                     <Button leftIcon={<SettingsIcon />} borderColor='#333A42' color='#333A42' variant='outline' width={60}>
                         Settings
                     </Button>
-                    <Button rightIcon={<DeleteIcon />} onClick={() => logout()} borderColor='#333A42' color='#333A42' variant='outline' width={60}>
+                    <Button leftIcon={<CloseIcon />} onClick={() => logout()} borderColor='#333A42' color='#333A42' variant='outline' width={60}>
                         Log Out
                     </Button>
                 </Stack>
