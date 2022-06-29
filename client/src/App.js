@@ -6,11 +6,13 @@ import { DashboardPage, LandingPage, MenuPage} from './pages'
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<LandingPage/>} />
-      <Route path='/menu' element={<MenuPage/>} />
-      <Route path='/dashboard' element={<DashboardPage/>} />
-    </Routes>
+    <div class='AppContainer'>
+        <Routes>
+          <Route path='/' element={<LandingPage/>} />
+          <Route path='/menu' element={<MenuPage/>} />
+          <Route path='/dashboard' element={<DashboardPage/>} />
+        </Routes>
+    </div>
   );
 }
 
