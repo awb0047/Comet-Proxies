@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, Button } from '@chakra-ui/react'
 import { SettingsIcon, AddIcon} from '@chakra-ui/icons'
-import { PlansContainer, HeaderText, PlanWrapper, BottomContainer, Line, PlansBox } from './myplansStyle'
+import { PlansContainer, HeaderText, PlanWrapper, BottomContainer, Line, PlansBox, NoPlans } from './myplansStyle'
 import { Plan } from './Plan/plan'
 
 export function MyPlans( {
