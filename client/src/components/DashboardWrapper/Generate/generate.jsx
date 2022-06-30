@@ -4,13 +4,13 @@ import { Select, Stack, Button, Input } from '@chakra-ui/react'
 import { GenerateContainer, Title, InnerGenerate, BottomContainer, Line} from './generateStyle'
 
 export function Generate( {
-    user, userData, plans, setGenProxies, setProxiesGenerated, setCount, count,
+    user, userData, plans, setGenProxies, setProxiesGenerated, setCount,
 } ) {
 
     const [proxyCount, setProxyCount] = useState(null)
 
     const onButtonClick = async ()=>{
-        if (count <= 0) {
+        if (proxyCount <= 0) {
             alert('Please enter a valid number');
         } else {
             var proxyList = await genProxies(user.proxyUser, user.proxyPass, user.sid, plans.activePlan[0].bandwidth)

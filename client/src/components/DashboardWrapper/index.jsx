@@ -38,7 +38,7 @@ export function MainBody( {
                 <Innerbody>
                     <Overview></Overview>
                     <Shop></Shop>
-                    <Generate setGenProxies={setGenProxies} setProxiesGenerated={setProxiesGenerated} user={ user } userData={ userData } plans={ plans } setCount={setCount} count={count} />
+                    <Generate setGenProxies={setGenProxies} setProxiesGenerated={setProxiesGenerated} user={ user } userData={ userData } plans={ plans } setCount={setCount} />
                     <GenerateOutput genProxies={genProxies} proxiesGenerated={proxiesGenerated} count={count} />
                 </Innerbody>
             </Mainbody_container>
