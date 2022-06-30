@@ -30,6 +30,7 @@ export function MainBody( {
 
     const [proxiesGenerated, setProxiesGenerated] = useState(false)
     const [genProxies, setGenProxies] = useState([])
+    const [count, setCount] = useState(0)
 
     return (
         <>
@@ -37,8 +38,8 @@ export function MainBody( {
                 <Innerbody>
                     <Overview></Overview>
                     <Shop></Shop>
-                    <Generate setGenProxies={setGenProxies} setProxiesGenerated={setProxiesGenerated} user={ user } userData={ userData } plans={ plans }/>
-                    <GenerateOutput genProxies={genProxies} proxiesGenerated={proxiesGenerated} />
+                    <Generate setGenProxies={setGenProxies} setProxiesGenerated={setProxiesGenerated} user={ user } userData={ userData } plans={ plans } setCount={setCount} />
+                    <GenerateOutput genProxies={genProxies} proxiesGenerated={proxiesGenerated} count={count} />
                 </Innerbody>
             </Mainbody_container>
         </>

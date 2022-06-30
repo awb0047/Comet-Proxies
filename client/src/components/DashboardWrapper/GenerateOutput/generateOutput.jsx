@@ -5,13 +5,29 @@ import { BottomContainer, GenerateOutputContainer, InnerGenerate, Line, Proxies 
 
 
 export function GenerateOutput( {
-    genProxies, proxiesGenerated
+    genProxies, proxiesGenerated, count
 } ) {
+
+    var printedProxies = [];
+    if (genProxies.length > 0) {
+
+        var newCount;
+
+        if (count > genProxies.length) {
+            newCount = genProxies.length
+        } else {
+            newCount = count;
+        }
+
+        for (var i = 0; i < newCount; i++) {
+            printedProxies.push(genProxies[i])
+        }
+    }
 
     const onButtonClick = async ()=>{
         var proxyListCopy = "";
-        for (var i = 0; i < genProxies.length; i++) {
-            proxyListCopy += genProxies[i] + "\n"
+        for (var i = 0; i < printedProxies.length; i++) {
+            proxyListCopy += printedProxies[i] + "\n"
         }
         navigator.clipboard.writeText(proxyListCopy)
         alert('Copied To Clipboard');
@@ -23,7 +39,7 @@ export function GenerateOutput( {
                 <InnerGenerate>
                     <Proxies>
                     { proxiesGenerated? (
-                        genProxies.map((proxy) => (
+                        printedProxies.map((proxy) => (
                             proxy + '\n'
                         ))
                     ) : 'Proxies Not Generated'

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { genProxies } from '../../../utils/api'
 import { Select, Stack, Button, Input } from '@chakra-ui/react'
 import { GenerateContainer, Title, InnerGenerate, BottomContainer, Line} from './generateStyle'
 
 export function Generate( {
-    user, userData, plans, setGenProxies, setProxiesGenerated
+    user, userData, plans, setGenProxies, setProxiesGenerated, setCount
 } ) {
+
+    const [proxyCount, setProxyCount] = useState(null)
 
     const onButtonClick = async ()=>{
         var proxyList = await genProxies(user.proxyUser, user.proxyPass, user.sid, plans.activePlan[0].bandwidth)
@@ -14,6 +16,7 @@ export function Generate( {
             console.log(proxyList.length);
             await setGenProxies(proxyList);
             setProxiesGenerated(true);
+            setCount(proxyCount);
                       
           }, 500);
     }
@@ -80,7 +83,7 @@ export function Generate( {
                         color='#9FB0C4'
                         placeholder='United States'
                     />
-                    <Input variant='filled' bg='#121518' _placeholder={{ color: '#333A42' }} color='white' placeholder={'maximum ' + proxyNumber} />
+                    <Input onChange={(event) => setProxyCount(event.target.value)} variant='filled' bg='#121518' _placeholder={{ color: '#333A42' }} color='white' placeholder={'Maximum ' + proxyNumber} />
                     </Stack>
                     <BottomContainer>
                         <Line></Line>
