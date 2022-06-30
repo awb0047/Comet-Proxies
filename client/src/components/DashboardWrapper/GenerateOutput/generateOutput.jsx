@@ -14,6 +14,7 @@ export function GenerateOutput( {
             proxyListCopy += genProxies[i] + "\n"
         }
         navigator.clipboard.writeText(proxyListCopy)
+        alert('Copied To Clipboard');
     }
 
     return (
