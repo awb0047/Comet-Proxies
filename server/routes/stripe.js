@@ -6,6 +6,7 @@ const api = require('../utils/api');
 const express = require('express');
 const router = require('express').Router();
 const bodyParser = require('body-parser');
+const Orders = require('../database/schemas/orders');
 
 router.use(
   express.json({
@@ -122,30 +123,40 @@ router.post('/webhook', async (req, res) => {
       case 'checkout.session.completed':
         console.log(data.object.metadata);
 
-        // await api.createNetNutUser(
-        //   data.object.metadata.discordId,
-        //   data.object.metadata.discordTag,
-        //   data.object.metadata.username,
-        //   data.object.metadata.password,
-        //   data.object.metadata.email,
-        // ).then(response => console.log(response)
-        // ).then(await api.allocateData(data.object.metadata.username, data.object.metadata.gb)
-        // .then(response => console.log(response)))
+        const findOrder = await Orders.findOne({name: 'orderList'})
+        const doesContainOrder = findOrder.orders.includes(data.object.id)
 
-        //UNCOMMENT BELOW
+        if (doesContainOrder === false) {
 
-        const response = await api.createNetNutUser
-        (
-          data.object.metadata.discordId,
-          data.object.metadata.discordTag,
-          data.object.metadata.username,
-          data.object.metadata.password,
-          data.object.metadata.email,
-        )
-        
-        console.log(response);
-        const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
-        console.log(dataResponse);
+          const updateOrders = await Orders.findOneAndUpdate(
+              {name: 'orderList' },
+              {
+                  $push: { orders: data.object.id },
+              },
+              {new: true}
+          );
+
+          const response = await api.createNetNutUser
+          (
+            data.object.metadata.discordId,
+            data.object.metadata.discordTag,
+            data.object.metadata.username,
+            data.object.metadata.password,
+            data.object.metadata.email,
+          )
+          
+          console.log(response);
+          console.log(data.object.id);
+          console.log('data allocated! (test)');
+          // const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
+          // console.log(dataResponse);
+          break;
+        }
+
+        else {
+          console.log('order already exists');
+          break;
+        }
 
         break;
       case 'invoice.paid':
