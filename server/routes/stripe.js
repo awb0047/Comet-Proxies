@@ -121,39 +121,45 @@ router.post('/webhook', async (req, res) => {
   
     switch (eventType) {
       case 'checkout.session.completed':
-        console.log(data.object.metadata);
 
-        const findOrder = await Orders.findOne({name: 'orderList'})
-        const doesContainOrder = findOrder.orders.includes(data.object.id)
+        try {
+          console.log(data.object.metadata);
 
-        if (doesContainOrder === false) {
+          const findOrder = await Orders.findOne({name: 'orderList'})
+          const doesContainOrder = findOrder.orders.includes(data.object.id)
 
-          const updateOrders = await Orders.findOneAndUpdate(
-              {name: 'orderList' },
-              {
-                  $push: { orders: data.object.id },
-              },
-              {new: true}
-          );
+          if (doesContainOrder === false) {
 
-          const response = await api.createNetNutUser
-          (
-            data.object.metadata.discordId,
-            data.object.metadata.discordTag,
-            data.object.metadata.username,
-            data.object.metadata.password,
-            data.object.metadata.email,
-          )
-          
-          console.log(response);
-          console.log(data.object.id);
-          const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
-          console.log(dataResponse);
-          break;
-        }
+            const updateOrders = await Orders.findOneAndUpdate(
+                {name: 'orderList' },
+                {
+                    $push: { orders: data.object.id },
+                },
+                {new: true}
+            );
 
-        else {
-          console.log('order already exists');
+            const response = await api.createNetNutUser
+            (
+              data.object.metadata.discordId,
+              data.object.metadata.discordTag,
+              data.object.metadata.username,
+              data.object.metadata.password,
+              data.object.metadata.email,
+            )
+            
+            console.log(response);
+            console.log(data.object.id);
+            const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
+            console.log(dataResponse);
+            break;
+          }
+
+          else {
+            console.log('order already exists');
+            break;
+          }
+        } catch (err) {
+          console.log(err);
           break;
         }
 

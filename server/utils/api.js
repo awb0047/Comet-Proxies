@@ -68,43 +68,47 @@ async function createNetNutUser(discordId, discordTag, username, password, email
 }
 
 async function allocateData(proxyUser, gb) {
-
-    //Gets customer ID
-    var userId;
-    const usersData = await getNetNutData();
-    for (var i = 0; i < usersData.result.customers.length; i++) {
-        if (usersData.result.customers[i].customer_login_name.toLowerCase() == proxyUser.toLowerCase()) {
-            userId = usersData.result.customers[i].customer_id
-            break
-            // if (usersData.result.customers[i].name.includes("allocation")) {
-            //     status_response = 'customer exists';
-            //     break
-            // }
-            // else {
-            //     status_response = 'customer does not exist';
-            // }
+    try {
+        //Gets customer ID
+        var userId;
+        const usersData = await getNetNutData();
+        for (var i = 0; i < usersData.result.customers.length; i++) {
+            if (usersData.result.customers[i].customer_login_name.toLowerCase() == proxyUser.toLowerCase()) {
+                userId = usersData.result.customers[i].customer_id
+                break
+                // if (usersData.result.customers[i].name.includes("allocation")) {
+                //     status_response = 'customer exists';
+                //     break
+                // }
+                // else {
+                //     status_response = 'customer does not exist';
+                // }
+            }
+            else {
+                userId;
+            }
         }
-        else {
-            userId;
+        const form = new FormData();
+        form.append("allocation", gb);
+
+        //Sets header options
+        const options = {
+        method: 'POST',
+        headers: {
+            'Content-Disposition': 'form-data',
         }
+        };
+
+        options.body = form;
+
+        const response = await fetch(`https://reseller-api.netnut.io/api/aff/customer/${userId}/allocate?loginPassword=Proxiescom098!&loginEmail=cometproxies1@gmail.com`, options)
+        const result = response.json();
+        return result;
+    } catch (err) {
+        console.log(err);
+        const result = {err: 'could not allocate data'}
+        return result;
     }
-    const form = new FormData();
-    form.append("allocation", gb);
-
-    //Sets header options
-    const options = {
-    method: 'POST',
-    headers: {
-        'Content-Disposition': 'form-data',
-    }
-    };
-
-    options.body = form;
-
-    // console.log(userId);
-    const response = await fetch(`https://reseller-api.netnut.io/api/aff/customer/${userId}/allocate?loginPassword=Proxiescom098!&loginEmail=cometproxies1@gmail.com`, options)
-    const result = response.json();
-    return result;
 }
 
 module.exports = { getNetNutData, createNetNutUser, allocateData }
