@@ -25,16 +25,12 @@ export function GenerateOutput( {
     }
 
     const onButtonClick = async ()=>{
-        if (count <= 0) {
-            alert('Please enter a valid number');
-        } else {
-            var proxyListCopy = "";
-            for (var i = 0; i < printedProxies.length; i++) {
-                proxyListCopy += printedProxies[i] + "\n"
-            }
-            navigator.clipboard.writeText(proxyListCopy)
-            alert('Copied To Clipboard');
+        var proxyListCopy = "";
+        for (var i = 0; i < printedProxies.length; i++) {
+            proxyListCopy += printedProxies[i] + "\n"
         }
+        navigator.clipboard.writeText(proxyListCopy)
+        alert('Copied To Clipboard');
     }
 
     return (
