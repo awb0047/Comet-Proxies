@@ -74,24 +74,27 @@ export function Generate( {
                         borderColor='transparent'
                         color='#9FB0C4'
                         placeholder='Select your plan'
+                        _hover={{background: "#4C5662"}}
                     />
                     <Select
                         bg='#333A42'
                         borderColor='transparent'
                         color='#9FB0C4'
                         placeholder='Static'
+                        _hover={{background: "#4C5662"}}
                     />
                     <Select
                         bg='#333A42'
                         borderColor='transparent'
                         color='#9FB0C4'
                         placeholder='United States'
+                        _hover={{background: "#4C5662"}}
                     />
                     <Input onChange={(event) => setProxyCount(event.target.value)} variant='filled' bg='#121518' _placeholder={{ color: '#333A42' }} color='white' placeholder={'Maximum ' + proxyNumber} />
                     </Stack>
                     <BottomContainer>
                         <Line></Line>
-                        <Button onClick={() => onButtonClick()} background='#478BC9' color='white' variant='solid' mt={4} w='270px'>Generate</Button>
+                        <Button onClick={() => onButtonClick()} background='#478BC9' color='white' variant='solid' mt={4} w='270px' _hover={{background: "#6197CA"}}>Generate</Button>
                     </BottomContainer>
                 </InnerGenerate>
             </GenerateContainer>

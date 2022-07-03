@@ -62,5 +62,5 @@ export const Tag = styled.h1`
     font-weight: bold;
     color: ${Colors.color8};
     float: left;
-    margin-left: 15px;
+    margin-left: 10px;
 `

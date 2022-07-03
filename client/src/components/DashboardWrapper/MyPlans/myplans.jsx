@@ -47,11 +47,8 @@ export function MyPlans( {
                 <BottomContainer>
                     <Line></Line>
                     <Stack direction='column' spacing={5} mt={7}>
-                        <Button onClick={() => setButtonPopup(true)} leftIcon={<AddIcon />} background='#478BC9' color='white' variant='solid'>
+                        <Button onClick={() => setButtonPopup(true)} leftIcon={<AddIcon />} background='#478BC9' color='white' variant='solid' _hover={{background: "#6197CA"}}>
                             Buy New Plans
-                        </Button>
-                        <Button background='transparent' color='#606B78' borderColor='#606B78' variant='outline'>
-                            Manage Plans
                         </Button>
                     </Stack>
                 </BottomContainer>
