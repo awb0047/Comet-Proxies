@@ -17,18 +17,17 @@ const Colors = {
 };
 
 export const GenerateContainer = styled.div`
-    position: absolute;
+    position: relative;
     height: 450px;
-    width: 310px;
+    width: calc(30%);
+    min-width: 320px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    bottom: 10px;
-    left: 50px;
+    float: left;
+    margin-left: 50px;
 
-    @media (max-width: 500px) {
-        position: relative;
-        left: 0px;
+    @media (max-width: 830px) {
         margin: 0 auto;
         margin-top: 20px;
     }

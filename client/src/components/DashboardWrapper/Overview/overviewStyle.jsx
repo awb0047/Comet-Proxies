@@ -17,17 +17,17 @@ const Colors = {
 };
 
 export const OverviewContainer = styled.div`
-    position: absolute;
+    position: relative;
     height: 215px;
-    width: 370px;
+    width: calc(35%);
+    min-width: 320px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    left: 50px;
+    float: left;
+    margin-left: 50px;
 
-    @media (max-width: 500px) {
-        position: relative;
-        left: 0px;
+    @media (max-width: 830px) {
         margin: 0 auto;
     }
 `

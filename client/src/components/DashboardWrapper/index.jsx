@@ -7,7 +7,7 @@ import { Shop } from './Shop/shop'
 import { Popup } from './Popup/Popup'
 import { Side } from './SideStyling'
 import { PopupWindow } from './PurchasePopUpStyling'
-import { Mainbody_container, Innerbody} from './MainStyling'
+import { Mainbody_container, Innerbody, TopRow, BottomRow} from './MainStyling'
 import { Generate } from "./Generate/generate";
 import { GenerateOutput } from './GenerateOutput/generateOutput'
 
@@ -36,10 +36,14 @@ export function MainBody( {
         <>
             <Mainbody_container>
                 <Innerbody>
-                    <Overview></Overview>
-                    <Shop></Shop>
-                    <Generate setGenProxies={setGenProxies} setProxiesGenerated={setProxiesGenerated} user={ user } userData={ userData } plans={ plans } setCount={setCount} />
-                    <GenerateOutput genProxies={genProxies} proxiesGenerated={proxiesGenerated} count={count} />
+                    <TopRow>
+                        <Overview></Overview>
+                        <Shop></Shop>
+                    </TopRow>
+                    <BottomRow>
+                        <Generate setGenProxies={setGenProxies} setProxiesGenerated={setProxiesGenerated} user={ user } userData={ userData } plans={ plans } setCount={setCount} />
+                        <GenerateOutput genProxies={genProxies} proxiesGenerated={proxiesGenerated} count={count} />
+                    </BottomRow>
                 </Innerbody>
             </Mainbody_container>
         </>

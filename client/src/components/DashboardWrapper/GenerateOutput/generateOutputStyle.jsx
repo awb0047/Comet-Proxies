@@ -17,19 +17,29 @@ const Colors = {
 };
 
 export const GenerateOutputContainer = styled.div`
-    position: absolute;
+    position: relative;
     height: 400px;
-    width: 560px;
-    bottom: 10px;
-    left: 380px;
+    width: calc(70% - 120px);
+    min-width: 350px;
     background: ${Colors.color3};
     border-radius: 8px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 20px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 1630px) {
+        width: calc(100% - 390px);
+    }
+
+    @media (max-width: 1300px) {
+        width: calc(100% - 430px);
+    }
+
+    @media (max-width: 830px) {
         position: relative;
         left: 0px;
         margin: 0 auto;
-        margin-top: 20px;
+        margin-top: 40px;
         width: 350px;
     }
 `
@@ -37,7 +47,7 @@ export const GenerateOutputContainer = styled.div`
 export const InnerGenerate = styled.div`
     position: absolute;
     height: 290px;
-    width: 530px;
+    width: calc(100% - 30px);
     top: 15px;
     left: 15px;
     background: ${Colors.color2};
@@ -60,7 +70,7 @@ export const Line = styled.div`
     position: absolute;
     background: #282D34;
     height: 3px;
-    width: 520px;
+    width: calc(100% - 40px);
     border-radius: 5px;
     top: 0;
     margin-left: 30px

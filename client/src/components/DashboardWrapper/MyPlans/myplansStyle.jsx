@@ -20,12 +20,17 @@ export const PlansContainer = styled.div`
     position: relative;
     // background: ${Colors.color3};
     height: auto;
+    min-height: 500px;
     width: 350px;
     max-height: calc(100% - 300px);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     margin-top: 50px;
+
+    @media (max-width: 1300px) {
+        margin: 0;
+    }
 `
 
 export const HeaderText = styled.h1`

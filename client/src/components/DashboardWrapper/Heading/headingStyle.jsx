@@ -17,6 +17,7 @@ const Colors = {
 };
 
 export const HeadingContainer = styled.div`
+    position: relative;
     height: 215px;
     width: 350px;
     display: flex;

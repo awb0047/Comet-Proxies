@@ -17,19 +17,18 @@ const Colors = {
 };
 
 export const ShopContainer = styled.div`
-    position: absolute;
+    position: relative;
     height: 215px;
-    width: 500px;
+    width: calc(65% - 125px);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    left: 438px;
+    float: left;
+    margin-left: 20px;
 
-    @media (max-width: 500px) {
-        position: relative;
-        left: 0px;
+    @media (max-width: 830px) {
         margin: 0 auto;
-        margin-top: 20px;
+        margin-top: 30px;
         width: 350px;
     }
 `
