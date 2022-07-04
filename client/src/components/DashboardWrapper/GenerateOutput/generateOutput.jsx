@@ -24,13 +24,26 @@ export function GenerateOutput( {
         }
     }
 
-    const onButtonClick = async ()=>{
+    const copyProxies = async ()=>{
         var proxyListCopy = "";
         for (var i = 0; i < printedProxies.length; i++) {
             proxyListCopy += printedProxies[i] + "\n"
         }
         navigator.clipboard.writeText(proxyListCopy)
         alert('Copied To Clipboard');
+    }
+
+    const downloadProxies = async ()=>{
+        var proxyListCopy = "";
+        for (var i = 0; i < printedProxies.length; i++) {
+            proxyListCopy += printedProxies[i] + "\n"
+        }
+        const element = document.createElement('a');
+        const file = new Blob([proxyListCopy], {type: 'text/plain'});
+        element.href = URL.createObjectURL(file);
+        element.download = "proxies.txt";
+        document.body.appendChild(element);
+        element.click();
     }
 
     return (
@@ -49,12 +62,12 @@ export function GenerateOutput( {
                 <BottomContainer>
                     <Line></Line>
                     <Stack direction='row' spacing={3}>
-                    <Button onClick={() => onButtonClick()} leftIcon={<CopyIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
+                    <Button onClick={() => copyProxies()} leftIcon={<CopyIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
                             Copy All
-                        </Button>
-                        <Button leftIcon={<DownloadIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
-                            Download
-                        </Button>
+                    </Button>
+                    <Button onClick={() => downloadProxies()} leftIcon={<DownloadIcon />} w='150px' bg='#333A42' color='white' variant='solid'>
+                        Download
+                    </Button>
                     </Stack>
                 </BottomContainer>
             </GenerateOutputContainer>
