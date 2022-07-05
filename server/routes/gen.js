@@ -7,85 +7,89 @@ const User = require('../database/schemas/User');
 router.use(express.json());
 
 router.post('/proxies', async (req, res) => {
-    var data = req.body.bandwidth;
-    var user = req.body.proxyUser;
-    var count = 0;
+    try {
+        var data = req.body.bandwidth;
+        var user = req.body.proxyUser;
+        var count = 0;
 
-    if (data === 0) {
-        count = 0;
-    }
-    else if (data === 5) {
-        count = 200;
-    }
-    else if (data === 10) {
-        count = 400;
-    }
-    else if (data === 20) {
-        count = 600;
-    }
-    else if (data === 30) {
-        count = 800;
-    }
-    else if (data === 40) {
-        count = 1000;
-    }
-    else if (data === 50) {
-        count = 1200;
-    }
-    else {
-        count = 2000;
-    }
+        if (data === 0) {
+            count = 0;
+        }
+        else if (data === 5) {
+            count = 200;
+        }
+        else if (data === 10) {
+            count = 400;
+        }
+        else if (data === 20) {
+            count = 600;
+        }
+        else if (data === 30) {
+            count = 800;
+        }
+        else if (data === 40) {
+            count = 1000;
+        }
+        else if (data === 50) {
+            count = 1200;
+        }
+        else {
+            count = 2000;
+        }
 
-    // const newIp = await Ip.create( {
-    //     ips: { 
-    //         ip1: '147.135.22.3',
-    //         ip2: '51.81.26.153',
-    //         ip3: '51.81.13.191',
-    //         ip4: '51.81.26.235',
-    //     }
-    // } );
+        // const newIp = await Ip.create( {
+        //     ips: { 
+        //         ip1: '147.135.22.3',
+        //         ip2: '51.81.26.153',
+        //         ip3: '51.81.13.191',
+        //         ip4: '51.81.26.235',
+        //     }
+        // } );
 
-    const foundIps = await Ip.findById('62b69e016c3ed6f7ee1b31e0')
-    console.log(foundIps.ips[0].ip1);
-    
-    
-    var proxyList = []
-    for (var i = 0; i < count; i++) {
-        var ip;
-        var ipNum = Gen.randomFour();
-        if (ipNum === 1) {
-            ip = foundIps.ips[0].ip1
+        const foundIps = await Ip.findById('62b69e016c3ed6f7ee1b31e0')
+        console.log(foundIps.ips[0].ip1);
+        
+        
+        var proxyList = []
+        for (var i = 0; i < count; i++) {
+            var ip;
+            var ipNum = Gen.randomFour();
+            if (ipNum === 1) {
+                ip = foundIps.ips[0].ip1
+            }
+        
+            if (ipNum === 2) {
+                ip = foundIps.ips[0].ip2
+            }
+        
+            if (ipNum === 3) {
+                ip = foundIps.ips[0].ip3
+            }
+        
+            if (ipNum === 4) {
+                ip = foundIps.ips[0].ip4
+            }
+            let randomGennedSid = Gen.genSID();
+            let proxy = `${ip}:5959:${req.body.proxyUser}-cc-cpus-sid-${randomGennedSid}:${req.body.proxyPass}`
+            proxyList.push(proxy);
         }
-    
-        if (ipNum === 2) {
-            ip = foundIps.ips[0].ip2
-        }
-    
-        if (ipNum === 3) {
-            ip = foundIps.ips[0].ip3
-        }
-    
-        if (ipNum === 4) {
-            ip = foundIps.ips[0].ip4
-        }
-        let randomGennedSid = Gen.genSID();
-        let proxy = `${ip}:5959:${req.body.proxyUser}-cc-cpus-sid-${randomGennedSid}:${req.body.proxyPass}`
-        proxyList.push(proxy);
-    }
 
-    const findUser = await User.findOne({ proxyUser: user })
-    if (findUser.currentIps.length != count) {
-        const updateUser = await User.findOneAndUpdate(
-            {proxyUser: user },
-            {
-                currentIps: proxyList,
-            },
-            {new: true}
-        );
-        res.json(proxyList);
-    }
-    else {
-        res.json(findUser.currentIps);
+        const findUser = await User.findOne({ proxyUser: user })
+        if (findUser.currentIps.length != count) {
+            const updateUser = await User.findOneAndUpdate(
+                {proxyUser: user },
+                {
+                    currentIps: proxyList,
+                },
+                {new: true}
+            );
+            res.json(proxyList);
+        }
+        else {
+            res.json(findUser.currentIps);
+        }
+    } catch (err) {
+        res.json({err: "Error Genning Proxies"});
     }
 } );
 
