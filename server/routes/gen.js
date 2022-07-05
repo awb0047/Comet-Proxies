@@ -91,8 +91,8 @@ router.post('/proxies', async (req, res) => {
     } catch (err) {
         res.json(
             {error: "Error Genning Proxies"},
-            {message: err.message}
         );
+        console.log(err);
     }
 } );
 
