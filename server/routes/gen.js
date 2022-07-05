@@ -89,7 +89,10 @@ router.post('/proxies', async (req, res) => {
             res.json(findUser.currentIps);
         }
     } catch (err) {
-        res.json({error: "Error Genning Proxies"});
+        res.json(
+            {error: "Error Genning Proxies"},
+            {message: err.message}
+        );
     }
 } );
 
