@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getNetNutData } = require('../utils/api')
+const { getNetNutData, getDataLeft } = require('../utils/api')
 
 router.get(`/data/:username`, async (req, res) => {
     const username = req.params['username']
@@ -46,7 +46,6 @@ router.get(`/dataLeft`, async (req, res) => {
         const dataLeft = await getDataLeft();
         res.json({dataLeft: dataLeft.result.result});
     } catch (err) {
-        console.log(err);
         res.json({err: 'Error fetching Data'})
     }
 } );
