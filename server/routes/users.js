@@ -41,6 +41,15 @@ router.get(`/data/:username`, async (req, res) => {
     }
 } );
 
+router.get(`/dataLeft`, async (req, res) => {
+    try {
+        const dataLeft = await getDataLeft();
+        res.json({dataLeft: dataLeft.result.result});
+    } catch (err) {
+        res.json({err: 'Error fetching Data'})
+    }
+} );
+
 router.get(`/plans/:username`, async (req, res) => {
     const username = req.params['username']
     const usersData = await getNetNutData();
