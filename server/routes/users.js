@@ -44,7 +44,8 @@ router.get(`/data/:username`, async (req, res) => {
 router.get(`/dataLeft`, async (req, res) => {
     try {
         const dataLeft = await getDataLeft();
-        res.json({dataLeft: dataLeft.result.result});
+        // res.json({dataLeft: dataLeft.result.result});
+        res.json({dataLeft: 32});
     } catch (err) {
         res.json({err: 'Error fetching Data'})
     }
