@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { stripeCheckout } from '../../../utils/api'
+import { stripeCheckout, getTotalData } from '../../../utils/api'
 import { PopupInner, TitleContainer, Title, BottomContainer, Line, Logo } from './PopupStyling'
 import { Stack, Button, Select } from '@chakra-ui/react'
 import { CopyIcon, DownloadIcon } from '@chakra-ui/icons'
@@ -9,8 +9,16 @@ export function Popup( {
 } ) {
 
     const [currentPlan, setCurrentPlan] = useState(null)
+    const [dataLeft, setDataLeft] = useState(null)
 
-    console.log(currentPlan);
+    async function checkDataLeft() {
+        const response = await getTotalData();
+        setDataLeft(response.data.dataLeft);
+    }
+
+    checkDataLeft();
+
+    //console.log(currentPlan);
 
     return (
         <>
@@ -28,12 +36,12 @@ export function Popup( {
                         borderColor='transparent'
                         color='#9FB0C4'
                         placeholder='Select a plan'>
-                            <option value="1">200 IPs | 5GB | $85 | $17/GB</option>
-                            <option value="2">400 IPs | 10GB | $160 | $16/GB</option>
-                            <option value="3">600 IPs | 20GB  | $300 | $15/GB</option>
-                            <option value="4">800 IPs | 30GB | $420 | $14/GB</option>
-                            <option value="5">1000 IPs | 40GB | $520 | $13/GB</option>
-                            <option value="6">1200 IPs | 50GB | $600 | $12/GB</option>
+                            <option value="5" disabled={5 > dataLeft ? true : false}>200 IPs | 5GB | $85 | $17/GB</option>
+                            <option value="10" disabled={10 > dataLeft ? true : false}>400 IPs | 10GB | $160 | $16/GB</option>
+                            <option value="20" disabled={20 > dataLeft ? true : false}>600 IPs | 20GB  | $300 | $15/GB</option>
+                            <option value="30" disabled={30 > dataLeft ? true : false}>800 IPs | 30GB | $420 | $14/GB</option>
+                            <option value="40" disabled={40 > dataLeft ? true : false}>1000 IPs | 40GB | $520 | $13/GB</option>
+                            <option value="50" disabled={50 > dataLeft ? true : false}>1200 IPs | 50GB | $600 | $12/GB</option>
                     </Select>
                 </Stack>
 

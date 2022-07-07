@@ -18,12 +18,12 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 
 const storeItems = new Map([
-    [1, { priceInCents: 8500, name: '200 IP Plan', gb: 5}],
-    [2, { priceInCents: 16000, name: '400 IP Plan', gb: 10}],
-    [3, { priceInCents: 30000, name: '600 IP Plan', gb: 20}],
-    [4, { priceInCents: 42000, name: '800 IP Plan', gb: 30}],
-    [5, { priceInCents: 52000, name: '1000 IP Plan', gb: 40}],
-    [6, { priceInCents: 60000, name: '1200 IP Plan', gb: 50}],
+    [5, { priceInCents: 8500, name: '200 IP Plan', gb: 5}],
+    [10, { priceInCents: 16000, name: '400 IP Plan', gb: 10}],
+    [20, { priceInCents: 30000, name: '600 IP Plan', gb: 20}],
+    [30, { priceInCents: 42000, name: '800 IP Plan', gb: 30}],
+    [40, { priceInCents: 52000, name: '1000 IP Plan', gb: 40}],
+    [50, { priceInCents: 60000, name: '1200 IP Plan', gb: 50}],
 ])
 
 router.post('/checkout', async (req, res) => {

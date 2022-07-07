@@ -14,6 +14,11 @@ export function getUserDetails() {
         withCredentials: true } );
 }
 
+export function getTotalData() {
+    return axios.get(`${subdomain}api/users/dataLeft`, {
+        withCredentials: true } );
+}
+
 export function getUserData(proxyUser) {
     return axios.get(`${subdomain}api/users/data/${proxyUser}`, {
         withCredentials: true } );
