@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import { Button } from '@chakra-ui/react'
 import { Routes, Route} from 'react-router-dom';
-import { DashboardPage, LandingPage, MenuPage} from './pages'
+import { DashboardPage, LandingPage, MenuPage, DownPage} from './pages'
 
 function App() {
   return (
