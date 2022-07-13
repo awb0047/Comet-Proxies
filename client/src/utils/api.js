@@ -4,7 +4,7 @@ const subdomain = 'https://www.cometproxies.com/'
 export async function login() {
     try {
         const response = await fetch(`${subdomain}api/auth/`);
-        console.log("status here");
+        console.log(response.status);
         window.location.href = `${subdomain}api/auth/discord/redirect`
     } catch (err) {
         window.location.href = `https://www.cometproxies.com/down`
