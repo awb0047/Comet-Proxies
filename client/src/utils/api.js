@@ -2,7 +2,12 @@ import axios from 'axios';
 const subdomain = 'https://www.cometproxies.com/'
 
 export function login() {
-    window.location.href = `${subdomain}api/auth/discord/redirect`
+    try {
+        const response = await fetch(`${subdomain}api/auth/`);
+        window.location.href = `${subdomain}api/auth/discord/redirect`
+    } catch (err) {
+        window.location.href = `https://www.cometproxies.com/down`
+    }
 }
 
 export function logout() {

@@ -11,6 +11,7 @@ function App() {
           <Route path='/' element={<LandingPage/>} />
           <Route path='/menu' element={<MenuPage/>} />
           <Route path='/dashboard' element={<DashboardPage/>} />
+          <Route path='/down' element={<DownPage/>} />
         </Routes>
     </div>
   );
