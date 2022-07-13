@@ -1,7 +1,7 @@
 import axios from 'axios';
 const subdomain = 'https://www.cometproxies.com/'
 
-export function login() {
+export async function login() {
     try {
         const response = await fetch(`${subdomain}api/auth/`);
         window.location.href = `${subdomain}api/auth/discord/redirect`
