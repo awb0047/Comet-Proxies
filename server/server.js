@@ -26,7 +26,7 @@ db.once("open", function () {
 
 app.use(cors( {
     //origin: "http://45.33.101.29:3000",
-    origin: "https://www.cometproxies.com",
+    origin: ["https://www.cometproxies.com", "https://cometproxies.com"],
     credentials: true,
 }))
 
