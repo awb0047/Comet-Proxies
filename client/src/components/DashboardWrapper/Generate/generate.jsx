@@ -73,9 +73,11 @@ export function Generate( {
                         bg='#333A42'
                         borderColor='transparent'
                         color='#9FB0C4'
-                        placeholder='Select your plan'
-                        _hover={{background: "#4C5662"}}
-                    />
+                        //placeholder='Select plan type'
+                        _hover={{background: "#4C5662"}}>
+                            <option value="0" style={{ background: '#4C5662' }}>Residential</option>
+                            <option value="1" style={{ background: '#4C5662' }} disabled={true}>ISP</option>
+                    </Select>
                     <Select
                         bg='#333A42'
                         borderColor='transparent'

@@ -39,7 +39,7 @@ export const PlanName = styled.h1`
 `
 export const UsageContainer = styled.div`
     height: 30px;
-    width: 200px;
+    width: 300px;
     display: flex;
     align-items: center;
     margin-top: 5px;
@@ -63,4 +63,14 @@ export const Total = styled.h1`
     color: ${Colors.color6};
     float: left;
     margin-left: 10px;
+`
+
+export const Exp = styled.h1`
+    width: auto;
+    height: autopx;
+    font-size: 15px;
+    font-weight: bold;
+    color: ${Colors.color6};
+    float: right;
+    margin-left: 50px;
 `
