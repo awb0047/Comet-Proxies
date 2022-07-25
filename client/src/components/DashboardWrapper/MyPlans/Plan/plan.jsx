@@ -1,11 +1,13 @@
 import React from "react";
-import { PlanWrapper, PlanName, UsageContainer, Left, Total, Exp } from './planStyle'
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { PlanWrapper, PlanName, UsageContainer, Left, Total, Exp, Top } from './planStyle'
+import { CircularProgress, CircularProgressLabel, Progress} from '@chakra-ui/react'
 
 export function Plan( {
     user, userData, plans
 } ) {
     var dataLeft = (plans.bandwidth - plans.used)
+    
+    var dataUsedRounded = Math.round(plans.used * 10) / 10;
     var percentDataLeft = (dataLeft / plans.bandwidth) * 100;
     dataLeft = Math.round(dataLeft * 10) / 10;
     var endDateString = "" + plans.end_date;
@@ -17,10 +19,18 @@ export function Plan( {
     return (
         <>
             <PlanWrapper>
-                <PlanName>Resi Plan</PlanName>
+                <Top>
+                    <PlanName>Resi Plan</PlanName>
+                    {isActivePlan ? (
+                        <Progress value={plans.used} bg="#606B78" w={150} mt="6" borderRadius="5"/>
+                    ) : (
+                        <Exp/>
+                    )
+                    }
+                </Top>
                 <UsageContainer>
-                    <CircularProgress value={percentDataLeft} size='25px' thickness='18px'/>
-                    <Left>{dataLeft} GB</Left>
+                    {/* <CircularProgress value={percentDataLeft} size='25px' thickness='18px'/> */}
+                    <Left>{dataUsedRounded} GB</Left>
                     <Total>/ {plans.bandwidth} GB</Total>
                     {isActivePlan ? (
                         <Exp>{endDate}</Exp>

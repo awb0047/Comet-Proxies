@@ -1,6 +1,7 @@
 import React from "react";
 import { Stack, Button } from '@chakra-ui/react'
 import { SettingsIcon, DeleteIcon, CloseIcon} from '@chakra-ui/icons'
+import { BiLogOut } from 'react-icons/bi'
 import { HeadingContainer, Logo, Welcome, Picture, Tag, User } from './headingStyle'
 import { logout } from '../../../utils/api'
 
@@ -18,7 +19,7 @@ export function Heading( {
                     <Tag>{user.discordTag}</Tag>
                 </User>
                 <Stack direction='row' spacing={5} mt={5}>
-                    <Button leftIcon={<CloseIcon />} onClick={() => logout()} borderColor='#333A42' color='#333A42' variant='outline' width="180px" _hover={{background: "rgba(51, 58, 66, 0.5)"}}>
+                    <Button leftIcon={<BiLogOut size={20}/>} onClick={() => logout()} borderColor='#333A42' color='#333A42' variant='outline' width="180px" _hover={{background: "rgba(51, 58, 66, 0.5)"}}>
                         Sign Out
                     </Button>
                 </Stack>

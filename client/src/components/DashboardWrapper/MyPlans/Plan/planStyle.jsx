@@ -24,18 +24,19 @@ export const PlanWrapper = styled.div`
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    border:1px solid ${Colors.color3};
+    //border:1px solid ${Colors.color3};
 `
 
 export const PlanName = styled.h1`
     width: auto;
-    height: autopx;
+    height: auto;
     font-size: 15px;
     font-weight: bold;
     color: ${Colors.color6};
     float: left;
     margin-left: 30px;
     margin-top: 20px;
+    margin-right: 70px;
 `
 export const UsageContainer = styled.div`
     height: 30px;
@@ -46,13 +47,21 @@ export const UsageContainer = styled.div`
     margin-left: 30px;
 `
 
+export const Top = styled.div`
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+`
+
 export const Left = styled.h1`
     width: auto;
     height: autopx;
     font-size: 25px;
     font-weight: regular;
     color: ${Colors.color8};
-    margin-left: 10px;
+    margin-left: 0px;
+    white-space: nowrap;
 `
 
 export const Total = styled.h1`
@@ -71,6 +80,6 @@ export const Exp = styled.h1`
     font-size: 15px;
     font-weight: bold;
     color: ${Colors.color6};
-    float: right;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: 15px;
 `
