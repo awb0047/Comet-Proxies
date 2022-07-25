@@ -5,8 +5,8 @@ function genSID() {
     return num;
 }
 
-function randomFour() {
-    return Math.floor(Math.random() * (4 - 1 + 1) + 1)
+function randomNumber(count) {
+    return Math.floor(Math.random() * (count - 1 + 1) + 1)
 }
 
 function genPass() {
@@ -19,6 +19,4 @@ function genPass() {
     return retVal;
 }
 
-module.exports = { genSID, genPass, randomFour }
-
-console.log(randomFour());
+module.exports = { genSID, genPass, randomNumber }

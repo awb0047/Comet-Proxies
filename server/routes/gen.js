@@ -47,28 +47,13 @@ router.post('/proxies', async (req, res) => {
         // } );
 
         const foundIps = await Ip.findById('62b69e016c3ed6f7ee1b31e0')
-        console.log(foundIps.ips[0].ip1);
-        
+        const ipCount = foundIps.ips.length;       
         
         var proxyList = []
         for (var i = 0; i < count; i++) {
             var ip;
-            var ipNum = Gen.randomFour();
-            if (ipNum === 1) {
-                ip = foundIps.ips[0].ip1
-            }
-        
-            if (ipNum === 2) {
-                ip = foundIps.ips[0].ip2
-            }
-        
-            if (ipNum === 3) {
-                ip = foundIps.ips[0].ip3
-            }
-        
-            if (ipNum === 4) {
-                ip = foundIps.ips[0].ip4
-            }
+            var ipNum = Gen.randomNumber(ipCount);
+            ip = foundIps.ips[ipNum - 1];
             let randomGennedSid = Gen.genSID();
             let proxy = `${ip}:5959:${req.body.proxyUser}-cc-cpus-sid-${randomGennedSid}:${req.body.proxyPass}`
             proxyList.push(proxy);
