@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { stripeCheckout, getTotalData } from '../../../utils/api'
-import { PopupInner, TitleContainer, Title, BottomContainer, Line, Logo } from './PopupStyling'
+import { PopupInner, TitleContainer, Title, BottomContainer, Line, Logo, TOS, TermsLink } from './PopupStyling'
 import { Stack, Button, Select } from '@chakra-ui/react'
 import { CopyIcon, DownloadIcon } from '@chakra-ui/icons'
 
@@ -44,6 +44,8 @@ export function Popup( {
                             <option value="50" disabled={50 > dataLeft ? true : false}>1200 IPs | 50GB | $600 | $12/GB</option>
                     </Select>
                 </Stack>
+
+                <TOS>By purchasing a plan, you agree to our <TermsLink target="_blank" rel="noopener noreferrer" href="terms">Terms of Services</TermsLink></TOS>
 
                 <BottomContainer>
                     <Line/>

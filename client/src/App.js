@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import { Button } from '@chakra-ui/react'
 import { Routes, Route} from 'react-router-dom';
-import { DashboardPage, LandingPage, MenuPage, DownPage} from './pages'
+import { DashboardPage, LandingPage, MenuPage, DownPage, TermsPage} from './pages'
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
           <Route path='/menu' element={<MenuPage/>} />
           <Route path='/dashboard' element={<DashboardPage/>} />
           <Route path='/down' element={<DownPage/>} />
+          <Route path='/terms' element={<TermsPage/>} />
         </Routes>
     </div>
   );

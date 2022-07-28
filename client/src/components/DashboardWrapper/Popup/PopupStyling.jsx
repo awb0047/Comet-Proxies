@@ -73,3 +73,18 @@ export const Logo = styled.img`
     margin-top: 20px;
     content: url('https://media.discordapp.net/attachments/974850038381547521/986083447737044992/logo_transparent.png?width=810&height=716');
 `
+
+export const TOS = styled.h1`
+    width: auto;
+    height: autopx;
+    font-size: 15px;
+    font-weight: normal;
+    color: ${Colors.color7};
+    float: left;
+    margin-left: 5px;
+    margin-top: 22px;
+`
+
+export const TermsLink = styled.a`
+    color: white;
+`
