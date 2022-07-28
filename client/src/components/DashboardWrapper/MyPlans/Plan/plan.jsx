@@ -5,13 +5,20 @@ import { CircularProgress, CircularProgressLabel, Progress} from '@chakra-ui/rea
 export function Plan( {
     user, userData, plans
 } ) {
-    var dataLeft = (plans.bandwidth - plans.used)
-    
+
+    //Data Left
     var dataUsedRounded = Math.round(plans.used * 10) / 10;
-    var percentDataLeft = (dataLeft / plans.bandwidth) * 100;
-    dataLeft = Math.round(dataLeft * 10) / 10;
+    var percentDataLeft = (plans.used / plans.bandwidth) * 100;
+
+    //Old data left (DONT USE)
+    // var dataLeft = (plans.bandwidth - plans.used)
+    // dataLeft = Math.round(dataLeft * 10) / 10;
+
+    //Plan End Date
     var endDateString = "" + plans.end_date;
     var endDate = endDateString.split(" ")[0];
+
+    //Checks if there is active plan
     var isActivePlan = false;
     if (plans.package_is_active === 1) {
         isActivePlan = true;
@@ -22,7 +29,7 @@ export function Plan( {
                 <Top>
                     <PlanName>Resi Plan</PlanName>
                     {isActivePlan ? (
-                        <Progress value={plans.used} bg="#606B78" w={150} mt="6" borderRadius="5"/>
+                        <Progress value={percentDataLeft} bg="#606B78" w={150} mt="6" borderRadius="5"/>
                     ) : (
                         <Exp/>
                     )
