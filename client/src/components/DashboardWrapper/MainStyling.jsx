@@ -75,7 +75,7 @@ export const BottomRow= styled.div`
     height: 470px;
     width: 100%;
     position: relative;
-
+    
     @media (max-width: 830px) {
         height: 900px;
         display: flex;
