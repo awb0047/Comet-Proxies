@@ -1,4 +1,6 @@
 const router = require('express').Router();
+router.use(express.json());
+const User = require('../database/schemas/User');
 const { getNetNutData, getDataLeft } = require('../utils/api')
 
 router.get(`/data/:username`, async (req, res) => {
@@ -114,5 +116,35 @@ router.get(`/plans/:username`, async (req, res) => {
         }); 
     }
 } );
+
+router.post('/clearproxies', async (req, res) => {
+
+    try {
+        const password = 14342365364564;
+        const passIn = (req.body.pass);
+        if (passIn === password) {
+
+            User.updateMany({}, 
+                {currentIps: []}, function (err, docs) {
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    console.log("Updated Docs : ", docs);
+                }
+            });
+
+            console.log("Success!");
+            res.json({response: "Success!"})
+        } else {
+            console.log("Incorrect Password");
+            res.json({response: "Incorrect Password"})
+        }
+    } catch (err) {
+        console.log("No Password Provided");
+        console.log(err.message);
+        res.json({response: "No Password Provided"})
+    }
+});
 
 module.exports = router;
