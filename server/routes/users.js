@@ -1,3 +1,4 @@
+const express = require('express');
 const router = require('express').Router();
 router.use(express.json());
 const User = require('../database/schemas/User');
