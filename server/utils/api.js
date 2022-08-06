@@ -124,4 +124,8 @@ async function allocateData(proxyUser, gb) {
     }
 }
 
-module.exports = { getNetNutData, createNetNutUser, allocateData, getDataLeft }
+async function sendEmailConfirmation(address, dataAmount, discordTag) {
+    console.log(dataAmount + "GB of data was successfully sent to " + discordTag);
+}
+
+module.exports = { getNetNutData, createNetNutUser, allocateData, getDataLeft, sendEmailConfirmation }

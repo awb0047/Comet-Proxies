@@ -150,6 +150,23 @@ router.post('/webhook', async (req, res) => {
             console.log(response);
             console.log(data.object.id);
             const dataResponse = await api.allocateData(data.object.metadata.username, data.object.metadata.gb);
+
+            try {
+              var deliveredSuccess = false;
+
+              if (dataResponse.result.result === true) {
+                var deliveredSuccess = false;
+              }
+
+              if (deliveredSuccess === true) {
+                console.log("Data Successfully Allocated");
+                api.sendEmailConfirmation(data.object.customer_details.email, data.object.metadata.gb, data.object.metadata.discordTag);
+              }
+            } catch (err) {
+              console.log("Error Sending Email");
+              console.log(err.message);
+            }
+
             console.log(dataResponse);
             break;
           }
