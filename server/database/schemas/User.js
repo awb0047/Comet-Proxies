@@ -41,6 +41,10 @@ const UserSchema = new mongoose.Schema({
   currentIps: {
     type: Array,
     require: true,
+  },
+  successPoints: {
+    type: Number,
+    require: true,
   }
 
 });
