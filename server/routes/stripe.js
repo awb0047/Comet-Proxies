@@ -161,6 +161,8 @@ router.post('/webhook', async (req, res) => {
               if (deliveredSuccess === true) {
                 console.log("Data Successfully Allocated");
                 api.sendEmailConfirmation(data.object.customer_details.email, data.object.metadata.gb, data.object.metadata.discordTag);
+              } else {
+                console.log("dataresponse.result.result did not return true or failed to catch");
               }
             } catch (err) {
               console.log("Error Sending Email");
