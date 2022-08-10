@@ -35,9 +35,12 @@ async function getDataLeft() {
 
 async function createNetNutUser(discordId, discordTag, username, password, email) {
     const newEmail = username + '@bettersneaks.com';
+
+    var nohashtag = discordTag.split("#");
+    nohashtag = nohashtag[0] + nohashtag[1];
     
     const form = new FormData();
-    form.append("customer_name", discordTag);
+    form.append("customer_name", nohashtag);
     form.append("customer_dashboard_email", newEmail);
     form.append("customer_dashboard_pwd", password);
     form.append("customer_login_name", username);
