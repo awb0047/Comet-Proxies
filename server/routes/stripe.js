@@ -155,7 +155,7 @@ router.post('/webhook', async (req, res) => {
               var deliveredSuccess = false;
 
               if (dataResponse.result.result === true) {
-                var deliveredSuccess = false;
+                deliveredSuccess = false;
               }
 
               if (deliveredSuccess === true) {
