@@ -45,7 +45,7 @@ export function Popup( {
                     </Select>
                 </Stack>
 
-                <TOS>By purchasing a plan, you agree to our <TermsLink target="_blank" rel="noopener noreferrer" href="terms">Terms of Services</TermsLink></TOS>
+                <TOS>By purchasing a plan, you agree to our <TermsLink target="_blank" rel="noopener noreferrer" href="dashboard/terms">Terms of Services</TermsLink></TOS>
 
                 <BottomContainer>
                     <Line/>

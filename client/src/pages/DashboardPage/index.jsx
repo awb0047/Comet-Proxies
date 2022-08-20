@@ -29,7 +29,7 @@ export function DashboardPage( {
             setLoading(false);
         }).catch( ( err ) => {
             console.log(err);
-            window.location.href = '/login'
+            window.location.href = '/dashboard/login'
             setLoading(false);
         } );
     }, [])
