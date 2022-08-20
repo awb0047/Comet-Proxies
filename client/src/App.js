@@ -8,11 +8,11 @@ function App() {
   return (
     <div class='AppContainer'>
         <Routes>
-          <Route path='/login' element={<LoginPage/>} />
+          <Route path='/dashboard/login' element={<LoginPage/>} />
           <Route path='/menu' element={<MenuPage/>} />
           <Route path='/dashboard' element={<DashboardPage/>} />
-          <Route path='/down' element={<DownPage/>} />
-          <Route path='/terms' element={<TermsPage/>} />
+          <Route path='/dashboard/down' element={<DownPage/>} />
+          <Route path='/dashboard/terms' element={<TermsPage/>} />
         </Routes>
     </div>
   );
