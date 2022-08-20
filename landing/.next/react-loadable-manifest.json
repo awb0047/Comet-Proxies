@@ -1,0 +1,71 @@
+{
+  "404.jsx -> @/components/Shell": {
+    "id": 355,
+    "files": [
+      "static/chunks/355.33a4b319221c9131.js"
+    ]
+  },
+  "500.jsx -> @/components/Shell": {
+    "id": 355,
+    "files": [
+      "static/chunks/355.33a4b319221c9131.js"
+    ]
+  },
+  "index.jsx -> @/components/Contact": {
+    "id": 79,
+    "files": [
+      "static/chunks/79.cd5e71d93947ce71.js"
+    ]
+  },
+  "index.jsx -> @/components/Faq": {
+    "id": 3291,
+    "files": [
+      "static/chunks/1bfc9850.1beb30b33bfd1896.js",
+      "static/chunks/404.3fd827f389e56ecd.js",
+      "static/chunks/291.7e881e5055d1bb42.js"
+    ]
+  },
+  "index.jsx -> @/components/Features": {
+    "id": 1306,
+    "files": [
+      "static/chunks/306.ea4972031b0d577c.js"
+    ]
+  },
+  "index.jsx -> @/components/Footer": {
+    "id": 6124,
+    "files": [
+      "static/chunks/124.04dc6e21245f7f04.js"
+    ]
+  },
+  "index.jsx -> @/components/Hero": {
+    "id": 3987,
+    "files": [
+      "static/chunks/987.de8b40331a21efb4.js"
+    ]
+  },
+  "index.jsx -> @/components/Nav": {
+    "id": 5918,
+    "files": [
+      "static/chunks/d64684d8.c537884e5343312a.js",
+      "static/chunks/404.3fd827f389e56ecd.js",
+      "static/chunks/846.0b104ca34d458e33.js",
+      "static/chunks/918.a0fb404d2a384a63.js"
+    ]
+  },
+  "index.jsx -> @/components/Pricing": {
+    "id": 3731,
+    "files": [
+      "static/chunks/731.340e06d9537b5869.js"
+    ]
+  },
+  "index.jsx -> @/components/Shell": {
+    "id": 355,
+    "files": [
+      "static/chunks/355.33a4b319221c9131.js"
+    ]
+  },
+  "index.jsx -> next/head": {
+    "id": 9008,
+    "files": []
+  }
+}

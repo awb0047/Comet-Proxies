@@ -1,0 +1,10 @@
+{
+  "name": "Comet Proxies — Reliable performance for botters big and small.",
+  "short_name": "Comet Proxies",
+  "description": "Comet is on a mission to deliver high-quality proxies for when speed and consistency matter most.",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#478BC9",
+  "background_color": "#0E1012",
+  "orientation": "portrait"
+}
