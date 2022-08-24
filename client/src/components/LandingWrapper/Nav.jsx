@@ -3,6 +3,8 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { HiMenu, HiX } from "react-icons/hi";
 
+import LogoT from '../../images/landing/logoT.png';
+
 export function Nav() {
   return (
     <Popover className="relative z-20">
@@ -11,7 +13,7 @@ export function Nav() {
           <div id="home" className="mx-auto max-w-7xl px-6">
             <div className="flex flex-row items-center justify-between py-6 pt-16 md:pt-24">
               <div className="flex items-center justify-start md:-ml-0 md:pl-10">
-                <img src="/logoT.png" alt="Logo" className="h-20" />
+                <img src={LogoT} alt="Logo" className="h-20" />
               </div>
               <div className="-my-2 md:hidden">
                 <Popover.Button className="text-primary inline-flex items-center justify-center rounded-md p-2 hover:text-primaryDark focus:outline-none">
@@ -84,7 +86,7 @@ export function Nav() {
                   <div className="flex items-center justify-between">
                     <div className="relative h-16 w-16">
                       <img
-                        src="/logoT.png"
+                        src={LogoT}
                         alt="Logo"
                         layout="fill"
                         className=""

@@ -1,3 +1,7 @@
+import Stars from '../../images/landing/stars.png';
+import Cubes from '../../images/landing/cubes.png';
+import Uptime from '../../images/landing/uptime.png';
+
 export function Features({
   props
 }) {
@@ -19,7 +23,7 @@ export function Features({
         <div className="mt-12 grid grid-cols-1 gap-5 text-center md:grid-cols-3">
           <div class="flex flex-col space-y-6 overflow-hidden rounded-3xl border border-[#232525] bg-transparent">
             <div>
-              <img src="/uptime.png" alt="" className="w-full" />
+              <img src={Uptime} alt="" className="w-full" />
             </div>
             <div className="space-y-5 pb-6">
               <p className="text-3xl font-semibold">99.9% Uptime</p>
@@ -31,7 +35,7 @@ export function Features({
           </div>
           <div class="flex flex-col space-y-6 overflow-hidden rounded-3xl border border-[#232525] bg-transparent">
             <div>
-              <img src="/cubes.png" alt="" className="w-full" />
+             <img src={Cubes} alt="" className="w-full" />
             </div>
             <div className="space-y-5 pb-6">
               <p className="text-3xl font-semibold">Private Resi IP Pools</p>
@@ -43,7 +47,7 @@ export function Features({
           </div>
           <div class="flex flex-col space-y-6 overflow-hidden rounded-3xl border border-[#232525] bg-transparent">
             <div>
-              <img src="/stars.png" alt="" className="w-full" />
+              <img src={Stars} alt="" className="w-full" />
             </div>
             <div className="space-y-5 pb-6">
               <p className="text-3xl font-semibold">Best-In-Class ISPs</p>
