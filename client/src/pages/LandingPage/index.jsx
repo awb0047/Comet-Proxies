@@ -1,11 +1,4 @@
-<<<<<<< Updated upstream
 import React from "react";
-import { Main } from "../../components";
-
-export function LandingPage( props ) {
-    return (
-        <Main/>
-=======
 import { Nav, Shell, Hero, Footer, Contact, Faq, Pricing, Features } from "../../components/LandingWrapper";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
@@ -91,6 +84,5 @@ export function LandingPage( props ) {
         </div>
       </Shell>
     </div>
->>>>>>> Stashed changes
     )
 }

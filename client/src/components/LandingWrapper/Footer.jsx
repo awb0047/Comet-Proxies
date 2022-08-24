@@ -1,6 +1,4 @@
-
 import FooterLogo from '../../images/landing/footerLogo.png';
-
 export function Footer({
   props
 }) {
@@ -9,7 +7,7 @@ export function Footer({
     <footer className="grid bg-primary-default px-4 py-8 md:grid-cols-2 md:px-24">
       <div className="flex flex-col space-y-5 pb-8 md:pb-0 text-center md:text-left">
         <div className="flex flex-row space-x-3 items-center justify-center md:justify-start">
-          <img src={FooterLogo} alt="Footer Logo" />
+         <img src={FooterLogo} alt="Footer Logo" />
           <p className="text-xl font-semibold">Comet Proxies</p>
         </div>
         <p className="text-[#C4D6EA]">

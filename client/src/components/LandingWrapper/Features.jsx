@@ -35,7 +35,7 @@ export function Features({
           </div>
           <div class="flex flex-col space-y-6 overflow-hidden rounded-3xl border border-[#232525] bg-transparent">
             <div>
-              <img src={Cubes} alt="" className="w-full" />
+             <img src={Cubes} alt="" className="w-full" />
             </div>
             <div className="space-y-5 pb-6">
               <p className="text-3xl font-semibold">Private Resi IP Pools</p>
