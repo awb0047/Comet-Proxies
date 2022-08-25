@@ -5,7 +5,7 @@ export function Pricing({
   return (
     <section
       className="flex w-full items-center justify-center px-1 py-16 md:py-32"
-      id="features"
+      id="pricing"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="space-y-3">
@@ -47,9 +47,9 @@ export function Pricing({
                 <option value="1000">1000 IPs | 40GB | $520</option>
                 <option value="1200">1200 IPs | 50GB | $600</option>
               </select>
-              <button className="trans rounded-md bg-primary-default py-3 px-16 text-lg font-semibold hover:bg-primary-light">
+              <a href="/dashboard" className="trans rounded-md bg-primary-default py-3 px-16 text-lg font-semibold hover:bg-primary-light text-center">
                 Purchase
-              </button>
+              </a>
             </div>
           </div>
           <div class="grid place-content-center space-y-6 overflow-hidden rounded-3xl border border-[#232525] bg-black p-9 text-center">
